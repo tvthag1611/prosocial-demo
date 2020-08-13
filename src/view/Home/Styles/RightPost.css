@@ -1,3 +1,63 @@
 .people-online {
   margin: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
+.yourself {
+  width: 100%;
+  padding: 0px;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+}
+.user-online {
+  /* background-color: blue; */
+  overflow-y: scroll;
+  margin-top: 20px;
+  height: 450px;
+  scrollbar-width: none;
+}
+.user-online::-webkit-scrollbar {
+  visibility: hidden;
+}
+.user {
+  position: relative;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+.online-icon {
+  position: absolute;
+  top: 13px;
+  right: 6px;
+  color: #4caf50;
+}
+.user-logo {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+.username {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.yourself-logo {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.yourname {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.yourname:hover {
+  color: #1877f2;
+}
+.top-fixed {
+  position: fixed;
+  width: 21%;
+}
+

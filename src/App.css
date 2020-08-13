@@ -12,6 +12,7 @@ p {
 .content {
   width: 70%;
   margin: 0px auto;
+  padding-top: 100px;
 }
 
 @media only screen and (max-width: 1024px) {
