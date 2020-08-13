@@ -14,9 +14,10 @@ function App() {
           <CreatePost />
           <Post />
           <Post />
-          <Post />
         </div>
-        <RightPost />
+        <div className="col-sm-0 col-md-0 col-lg-4  ">
+          <RightPost />
+        </div>
       </div>
     </>
   );
