@@ -33,7 +33,11 @@ export default function Post({typePost}) {
     <div className="post">
       <div className="post-header">
         <div className="avatar-user">
-          <div className="fake-img"></div>
+          <img
+            className="user-ava"
+            src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+            alt="avatar-user"
+          />
           <div className="name-avatar">
             <strong>Trần Văn Thắng</strong>
             <small>Vừa ngay</small>
@@ -75,11 +79,31 @@ export default function Post({typePost}) {
                 className="all-member-tick"
                 onClick={handleShowMemberTick}
               >
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
+                <img
+                  className="member-tick"
+                  src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://lh3.googleusercontent.com/proxy/C6_TFNpHqQY6ZobGP_cVvMkGx1C1EKaGIYz7tTh5n_c8BEBqlg66Y_BDlGiJ0V7WH9s8iwKngqvJMmDG0rV_e6nBvtjJ0jgHUT0GwwZ6m3vUgcEPCQgfp7ESrLdKfgN87DRgxUU78Nvw8PvcvcqyRsatN_Iz"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
+                  alt="avatar-user"
+                />
                 <div className="member-tick-more">+34</div>
               </div>
             </div>
@@ -90,11 +114,31 @@ export default function Post({typePost}) {
                 className="all-member-tick"
                 onClick={handleShowMemberTick}
               >
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
+                <img
+                  className="member-tick"
+                  src="https://img2.thuthuatphanmem.vn/uploads/2018/12/25/nhung-hinh-anh-gai-xinh-cuc-dep_012909400.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://lh3.googleusercontent.com/proxy/5tVuukCwOWLaSdX-vcbnnTG2wkS5IQSx4WnqepIIjjrve6LnRvA5ONkOtQ45orV1Uq549-I1Rz7_e_XPbHgvaD_ug9Z3GeETx9vfLLLVnusACKOoBkZzZFfGZXxJ857D3ExVnQ"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://www.gocbao.com/wp-content/uploads/2019/09/stt-hay-khi-dang-anh-con-gai1.jpg6_.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://lh3.googleusercontent.com/proxy/2L869Kd4Y_Q8mxopvFXTtIKgieSsoXEZs2qaXAZpnpfxBsoJsuKkO7vDT2yXyTZu_h-Fqbk_Ct3DX72hrJYBrbZlvHN3sC-NUQx5FuSLlwgE6F-w3L2oULDWZlCuDUTxjzlJ"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://duhocminhkhang.com/wp-content/uploads/2020/01/T%E1%BB%95ng-h%E1%BB%A3p-h%C3%ACnh-%E1%BA%A3nh-g%C3%A1i-xinh-%C4%91eo-m%E1%BA%AFt-k%C3%ADnh-c%E1%BB%B1c-cute-10-1.jpg"
+                  alt="avatar-user"
+                />
                 <div className="member-tick-more">+21</div>
               </div>
             </div>
@@ -105,11 +149,31 @@ export default function Post({typePost}) {
                 className="all-member-tick"
                 onClick={handleShowMemberTick}
               >
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
-                <div className="member-tick"></div>
+                <img
+                  className="member-tick"
+                  src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://lh3.googleusercontent.com/proxy/C6_TFNpHqQY6ZobGP_cVvMkGx1C1EKaGIYz7tTh5n_c8BEBqlg66Y_BDlGiJ0V7WH9s8iwKngqvJMmDG0rV_e6nBvtjJ0jgHUT0GwwZ6m3vUgcEPCQgfp7ESrLdKfgN87DRgxUU78Nvw8PvcvcqyRsatN_Iz"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
+                  alt="avatar-user"
+                />
+                <img
+                  className="member-tick"
+                  src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
+                  alt="avatar-user"
+                />
                 <div className="member-tick-more">+10</div>
               </div>
             </div>
@@ -164,7 +228,9 @@ export default function Post({typePost}) {
         <div className="like-cmt-share-post">
           {/* <i className="far fa-heart"></i> */}
           <i className="fas fa-heart like-post"></i>
-          <i className="far fa-comment"></i>
+          <label for={"write-comment-out"+typePost}>
+            <i className="far fa-comment"></i>
+          </label>
           <i className="far fa-share-square"></i>
         </div>
         <strong className="count-like">10,723 likes</strong>
@@ -186,7 +252,11 @@ export default function Post({typePost}) {
               <div className="content-in-post">
                 <div className="post-header">
                 <div className="avatar-user">
-                  <div className="fake-img"></div>
+                  <img
+                    className="user-ava"
+                    src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                    alt="avatar-user"
+                  />
                   <div className="name-avatar">
                     <strong>Trần Văn Thắng</strong>
                     <small>Vừa ngay</small>
@@ -214,12 +284,128 @@ export default function Post({typePost}) {
                 </div>
                 </div>
                 <div className="post-content">
-                  <p className="content-of-post">Đẹp như này thì công sao chịu nổi</p>
-                  <img
-                    className="img-post"
-                    src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"
-                    alt="Không load được ảnh"
-                  />
+                {typePost == 1 ?
+                  <div className="just-text">
+                    <p>Hôm nay thi như shit mọi người à!</p>
+                  </div> :
+                  typePost == 2 ?
+                  <div className="text-and-poll">
+                    <p>Hôm nay của mọi người thế nào?</p>
+                    <div className="form-group form-check">
+                      <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                      <label className="form-check-label" for="exampleCheck1">Tuyệt vời</label>
+                      <div
+                        className="all-member-tick"
+                        onClick={handleShowMemberTick}
+                      >
+                        <img
+                          className="member-tick"
+                          src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://lh3.googleusercontent.com/proxy/C6_TFNpHqQY6ZobGP_cVvMkGx1C1EKaGIYz7tTh5n_c8BEBqlg66Y_BDlGiJ0V7WH9s8iwKngqvJMmDG0rV_e6nBvtjJ0jgHUT0GwwZ6m3vUgcEPCQgfp7ESrLdKfgN87DRgxUU78Nvw8PvcvcqyRsatN_Iz"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
+                          alt="avatar-user"
+                        />
+                        <div className="member-tick-more">+34</div>
+                      </div>
+                    </div>
+                    <div className="form-group form-check">
+                      <input type="checkbox" className="form-check-input" id="exampleCheck2" />
+                      <label className="form-check-label" for="exampleCheck2">Bình thường, không có gì đặc biệt</label>
+                      <div
+                        className="all-member-tick"
+                        onClick={handleShowMemberTick}
+                      >
+                        <img
+                          className="member-tick"
+                          src="https://img2.thuthuatphanmem.vn/uploads/2018/12/25/nhung-hinh-anh-gai-xinh-cuc-dep_012909400.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://lh3.googleusercontent.com/proxy/5tVuukCwOWLaSdX-vcbnnTG2wkS5IQSx4WnqepIIjjrve6LnRvA5ONkOtQ45orV1Uq549-I1Rz7_e_XPbHgvaD_ug9Z3GeETx9vfLLLVnusACKOoBkZzZFfGZXxJ857D3ExVnQ"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://www.gocbao.com/wp-content/uploads/2019/09/stt-hay-khi-dang-anh-con-gai1.jpg6_.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://lh3.googleusercontent.com/proxy/2L869Kd4Y_Q8mxopvFXTtIKgieSsoXEZs2qaXAZpnpfxBsoJsuKkO7vDT2yXyTZu_h-Fqbk_Ct3DX72hrJYBrbZlvHN3sC-NUQx5FuSLlwgE6F-w3L2oULDWZlCuDUTxjzlJ"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://duhocminhkhang.com/wp-content/uploads/2020/01/T%E1%BB%95ng-h%E1%BB%A3p-h%C3%ACnh-%E1%BA%A3nh-g%C3%A1i-xinh-%C4%91eo-m%E1%BA%AFt-k%C3%ADnh-c%E1%BB%B1c-cute-10-1.jpg"
+                          alt="avatar-user"
+                        />
+                        <div className="member-tick-more">+21</div>
+                      </div>
+                    </div>
+                    <div className="form-group form-check">
+                      <input type="checkbox" className="form-check-input" id="exampleCheck3" />
+                      <label className="form-check-label" for="exampleCheck3">Cực kỳ tệ luôn</label>
+                      <div
+                        className="all-member-tick"
+                        onClick={handleShowMemberTick}
+                      >
+                        <img
+                          className="member-tick"
+                          src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://lh3.googleusercontent.com/proxy/C6_TFNpHqQY6ZobGP_cVvMkGx1C1EKaGIYz7tTh5n_c8BEBqlg66Y_BDlGiJ0V7WH9s8iwKngqvJMmDG0rV_e6nBvtjJ0jgHUT0GwwZ6m3vUgcEPCQgfp7ESrLdKfgN87DRgxUU78Nvw8PvcvcqyRsatN_Iz"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
+                          alt="avatar-user"
+                        />
+                        <img
+                          className="member-tick"
+                          src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
+                          alt="avatar-user"
+                        />
+                        <div className="member-tick-more">+10</div>
+                      </div>
+                    </div>
+                  </div> :
+                  <div className="text-and-img"> 
+                    <p className="content-of-post">Đẹp như này thì công sao chịu nổi</p>
+                    <img
+                      className="img-post"
+                      src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"
+                      alt="Không load được ảnh"
+                    />
+                  </div>
+                }
                 </div>
               </div>
               <div className="comment-in-post">
@@ -238,7 +424,9 @@ export default function Post({typePost}) {
                               <i className="fas fa-heart like-post"></i>
                               <p>3</p>  
                             </div>
-                            <span>Reply</span>  
+                            <label
+                              for="write-comment"
+                            >Reply</label>  
                           </div>
                         </div>
                       </tr>
@@ -251,75 +439,13 @@ export default function Post({typePost}) {
                               <i className="fas fa-heart like-post"></i>
                               <p>3</p>  
                             </div>
-                            <span>Reply</span>  
+                            <label
+                              for="write-comment"
+                            >Reply</label>  
                           </div>
                         </div>
                       </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <span>Reply</span>  
-                          </div>
-                        </div>
-                      </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <span>Reply</span>  
-                          </div>
-                        </div>
-                      </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <span>Reply</span>  
-                          </div>
-                        </div>
-                      </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <span>Reply</span>  
-                          </div>
-                        </div>
-                      </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <span>Reply</span>  
-                          </div>
-                        </div>
-                      </tr>
+                      
                     </tbody>
                   </table>
                 </div>
@@ -327,7 +453,9 @@ export default function Post({typePost}) {
                 <div className="like-cmt-share-post">
                     {/* <i className="far fa-heart"></i> */}
                     <i className="fas fa-heart like-post"></i>
-                    <i className="far fa-comment"></i>
+                    <label for="write-comment">
+                      <i className="far fa-comment"></i>
+                    </label>
                     <i className="far fa-share-square"></i>
                   </div>
                   <strong className="count-like">10,723 likes</strong>
@@ -339,6 +467,7 @@ export default function Post({typePost}) {
                     className="form-control"
                     placeholder="Add a comment..."
                     onChange={handleChange}
+                    id="write-comment"
                   />
                   <button
                     onClick={() => {
@@ -360,6 +489,7 @@ export default function Post({typePost}) {
           className="form-control"
           placeholder="Add a comment..."
           onChange={handleChange}
+          id={"write-comment-out"+typePost}
         />
         <button
           onClick={() => {

@@ -58,11 +58,9 @@
   align-items: center;
 }
 
-.post-header .avatar-user .fake-img{
+.post-header .avatar-user .user-ava{
   width: 35px;
   height: 35px;
-  border-radius: 100%;
-  background-color: hotpink;
 }
 
 .avatar-user .name-avatar {
@@ -100,6 +98,10 @@
   margin-right: 20px;
   font-size: 30px;
   cursor: pointer;
+}
+
+.like-cmt-share-post label{
+  margin-bottom: 0px;
 }
 
 .like-post {
@@ -203,7 +205,7 @@
   margin-right: 5px;
 }
 
-.reaction-cmt span {
+.reaction-cmt label {
   color: #2996f6;
   cursor: pointer;
 }
@@ -227,7 +229,7 @@
 
 .my-custom-scrollbar {
   position: relative;
-  height: 400px;
+  max-height: 400px;
   overflow: scroll;
 }
 
@@ -266,23 +268,30 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 125px;
+  width: 150px;
 }
 
-.member-tick:not(:first-child), .member-tick-more {
+.member-tick {
+  object-fit: cover;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  background-color: springgreen;
-  border: 1px solid black;
+}
+
+.member-tick:not(:first-child), .member-tick-more {
   margin-left: -5px;
 }
 
 .member-tick-more {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  background-color: #e2e2e2;
+  padding: 5px;
 }
 
 .list-member-tick {

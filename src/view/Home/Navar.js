@@ -80,10 +80,12 @@ export default function Navar() {
             className="fas fa-bell nav-bar-icon noti"
             onClick={onShowNoticationClick}
           ><i className="fas fa-circle noti-item"></i></i>
-          <i
-            className="fas fa-user nav-bar-icon "
+          <img
+            className="user-ava"
             onClick={onShowMultiTaskClick}
-          ></i>
+            src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+            alt="avatar-user"
+          />
         </div>
       </div>
       <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
