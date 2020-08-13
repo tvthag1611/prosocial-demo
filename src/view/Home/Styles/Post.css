@@ -3,6 +3,7 @@
   height: auto;
   border-radius: 5px;
   border: 1px solid #e2e2e2;
+  margin: 15px 0px;
 }
 
 .post-header {
@@ -307,4 +308,12 @@
   border-radius: 100%;
   background-color: steelblue;
   margin: 0px 10px;
+}
+
+.modal-backdrop {
+  z-index: 100000 !important;
+}
+
+.modal {
+  z-index: 100000 !important;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Styles/Post.css'
 import {Modal} from 'react-bootstrap'
-export default function Post() {
+export default function Post({typePost}) {
 
   const [showMenuPost, setShowMenuPost] = useState(false)
   const [showMemberTick, setShowMemberTick] = useState(false)
@@ -61,65 +61,68 @@ export default function Post() {
         </div>
       </div>
       <div className="post-content">
-        {/* <div className="just-text">
-          <p>Hôm nay thi như shit mọi người à!</p>
-        </div> */}
-        {/* <div className="text-and-poll">
-          <p>Hôm nay của mọi người thế nào?</p>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" for="exampleCheck1">Tuyệt vời</label>
-            <div
-              className="all-member-tick"
-              onClick={handleShowMemberTick}
-            >
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick-more">+34</div>
+        {typePost == 1 ?
+          <div className="just-text">
+            <p>Hôm nay thi như shit mọi người à!</p>
+          </div> :
+          typePost == 2 ?
+          <div className="text-and-poll">
+            <p>Hôm nay của mọi người thế nào?</p>
+            <div className="form-group form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+              <label className="form-check-label" for="exampleCheck1">Tuyệt vời</label>
+              <div
+                className="all-member-tick"
+                onClick={handleShowMemberTick}
+              >
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick-more">+34</div>
+              </div>
             </div>
-          </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck2" />
-            <label className="form-check-label" for="exampleCheck2">Bình thường, không có gì đặc biệt</label>
-            <div
-              className="all-member-tick"
-              onClick={handleShowMemberTick}
-            >
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick-more">+21</div>
+            <div className="form-group form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck2" />
+              <label className="form-check-label" for="exampleCheck2">Bình thường, không có gì đặc biệt</label>
+              <div
+                className="all-member-tick"
+                onClick={handleShowMemberTick}
+              >
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick-more">+21</div>
+              </div>
             </div>
-          </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck3" />
-            <label className="form-check-label" for="exampleCheck3">Cực kỳ tệ luôn</label>
-            <div
-              className="all-member-tick"
-              onClick={handleShowMemberTick}
-            >
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick"></div>
-              <div className="member-tick-more">+10</div>
+            <div className="form-group form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck3" />
+              <label className="form-check-label" for="exampleCheck3">Cực kỳ tệ luôn</label>
+              <div
+                className="all-member-tick"
+                onClick={handleShowMemberTick}
+              >
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick"></div>
+                <div className="member-tick-more">+10</div>
+              </div>
             </div>
+          </div> :
+          <div className="text-and-img"> 
+            <p className="content-of-post">Đẹp như này thì công sao chịu nổi</p>
+            <img
+              className="img-post"
+              src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"
+              alt="Không load được ảnh"
+            />
           </div>
-        </div> */}
-        <div className="text-and-img"> 
-          <p className="content-of-post">Đẹp như này thì công sao chịu nổi</p>
-          <img
-            className="img-post"
-            src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"
-            alt="Không load được ảnh"
-          />
-        </div>
+        }
         <Modal
           show={showMemberTick}
           onHide={handleHiddenMemberTick}

@@ -60,12 +60,12 @@ export default function RightPost() {
       name: "Nguyễn Hoài Đức"
     },
   ]
-  var userList = usersOnline.map(user => {
+  var userList = usersOnline.map((user,index) => {
     return (
-      <div className="user">
+      <div className="user" key = {index}>
         < img src={user.imgSrc} className="user-logo" />
         <small className="username">{user.name}</small>
-        <i class="fas fa-circle online-icon"></i>
+        <i className="fas fa-circle online-icon"></i>
       </div>
     )
   })

@@ -36,7 +36,6 @@
   padding-top: 4px;
   padding-left: 4px;
   width: 32px;
-
   height: 32px;
   cursor: pointer;
   border-radius: 50%;
@@ -46,11 +45,12 @@
 }
 .nav-bar-search {
   font-size: 19.5px;
-  padding-top: 6px;
-  height: 32px;
-  cursor: pointer;
+}
 
-  border-radius: 50%;
+.nav-currency form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .nav-bar-icon:hover {
@@ -62,30 +62,27 @@
   font-size: inherit;
   line-height: inherit;
   outline: none;
-
   border: none;
   background-color: #f0f2f5;
-  border-radius: 26px;
+  border-radius: 26px 0px 0px 26px;
   height: 32px;
   padding-left: 19px;
-
-  transition: 1s;
+  width: 130px;
 }
 .btn-search {
   border: none;
-  border-radius: 50%;
-  position: absolute;
-  top: 9px;
-  right: 17px;
-  height: 31px;
+  border-radius: 0 26px 26px 0;
+  width: 32px;
+  height: 32px;
   outline: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btn-search:active {
   border: none;
 }
-.navbar-searchform {
-  width: 45%;
-}
+
 .dp-none {
   transition: 1s;
   display: none;
@@ -152,7 +149,7 @@
   font-size: 10px;
   color: red;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .nav-bar {
     max-width: 70% !important;
   }

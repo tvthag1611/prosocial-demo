@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Styles/Navar.css'
 export default function Navar() {
 
-  let [searchBoxContent, setSetSearchBoxContent] = useState(null);
+  let [searchBoxContent, setSetSearchBoxContent] = useState('');
   let [showMultiTask, setShowMultiTask] = useState(false);
   let [showNotification, setShowNotification] = useState(false);
   const handleClick = (e) => {
@@ -44,7 +44,7 @@ export default function Navar() {
           {item.action}
 
         </div>
-        <div className="notification-time"><smal>{item.timeCreated}</smal></div>
+        <div className="notification-time"><small>{item.timeCreated}</small></div>
       </div >
     )
   })
@@ -53,8 +53,8 @@ export default function Navar() {
     <nav className="nav">
       <div className="row nav-bar col-sm-12">
         <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
-          <img src="img/ProPTIT-logo.png" className="nav-bar-brand" />
-          <form >
+          <img src="img/ProPTIT-logo.png" className="nav-bar-brand" alt="proptit"/>
+          <form>
             <input
               type="text"
               placeholder="Search..."
@@ -63,36 +63,36 @@ export default function Navar() {
               className="nav-bar-search-input" />
             <button
               type="button"
-              className="btn-search"
+              className="btn-search bg-grey"
               onClick={handleClick}
             >
-              <i class="fas fa-search nav-bar-search bg-grey"></i>
+              <i className="fas fa-search nav-bar-search"></i>
             </button>
           </form>
         </div>
 
         <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <a><i class="fas fa-home nav-bar-icon"></i></a>
-          <a><i class="fas fa-user-friends nav-bar-icon"></i></a>
-          <a><i class="fas fa-image nav-bar-icon "></i></a>
-          <a><i class="fas fa-comments nav-bar-icon"></i></a>
+          <a><i className="fas fa-home nav-bar-icon"></i></a>
+          <a><i className="fas fa-user-friends nav-bar-icon"></i></a>
+          <a><i className="fas fa-image nav-bar-icon "></i></a>
+          <a><i className="fas fa-comments nav-bar-icon"></i></a>
           <i
-            class="fas fa-bell nav-bar-icon noti"
+            className="fas fa-bell nav-bar-icon noti"
             onClick={onShowNoticationClick}
-          ><i class="fas fa-circle noti-item"></i></i>
+          ><i className="fas fa-circle noti-item"></i></i>
           <i
-            class="fas fa-user nav-bar-icon "
+            className="fas fa-user nav-bar-icon "
             onClick={onShowMultiTaskClick}
           ></i>
         </div>
       </div>
       <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
         <div className="block-container">
-          <div className="dropdown-item"><a><i class="far fa-user-circle"></i>Profile</a></div>
-          <div className="dropdown-item"><a><i class="fas fa-cog"></i>Setting</a></div>
-          <div className="dropdown-item"><a><i class="far fa-envelope"></i>Inbox</a></div>
-          <div className="dropdown-item"><a><i class="far fa-question-circle"></i>Need help?</a></div>
-          <div className="dropdown-item"><a><i class="fas fa-sign-out-alt"></i>Sign out</a></div>
+          <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
+          <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
+          <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
+          <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
+          <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
         </div>
       </div>
       <div className={showNotification ? "block-profile " : "block-profile dp-none"}>
