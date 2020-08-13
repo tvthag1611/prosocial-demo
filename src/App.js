@@ -14,6 +14,7 @@ function App() {
           <CreatePost />
           <Post />
           <Post />
+          <Post />
         </div>
         <RightPost />
       </div>
