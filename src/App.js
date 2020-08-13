@@ -13,6 +13,7 @@ function App() {
         <div className="left-content col-sm-12 col-lg-8 col-md-12">
           <CreatePost />
           <Post />
+          <Post />
         </div>
         <RightPost />
       </div>
