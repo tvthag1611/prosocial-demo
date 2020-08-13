@@ -10,7 +10,7 @@ function App() {
     <>
       <Navar />
       <div className="content row">
-        <div className="left-content col-8">
+        <div className="left-content col-sm-12 col-lg-8 col-md-12">
           <CreatePost />
           <Post />
         </div>
