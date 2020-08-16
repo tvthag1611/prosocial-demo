@@ -116,11 +116,11 @@ export default function CreatePost(props) {
             className="write-on-post"
           ></textarea>
           <div
-            className = {display === 'poll' ? "preview-polls" : display === 'image' ? "preview-images" : "display-none"}
+            className = {display === 'poll' ? "preview-polls" : display === 'image' ? "preview-images" : ""}
           >
             <i
-              className="fas fa-times-circle btn-close-preview"
-              onClick={() => setDisplay(1)}
+              className={display === 'text' ? "" : "fas fa-times-circle btn-close-preview"}
+              onClick={() => setDisplay('text')}
             ></i>
             {display === 'poll' ?
             <>
@@ -160,11 +160,11 @@ export default function CreatePost(props) {
                 alt="import-img"
                 className="image-import"
               />
-              <img
+              {/* <img
                 src="https://icapi.org/wp-content/uploads/2019/10/anh-gai-xinh-deo-kinh-1.jpg"
                 alt="import-img"
                 className="image-import"
-              />
+              /> */}
             </> : <div></div>
             }
           </div>
