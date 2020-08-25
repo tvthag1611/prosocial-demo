@@ -39,7 +39,10 @@ export default function Post({typePost}) {
             alt="avatar-user"
           />
           <div className="name-avatar">
-            <strong>Trần Văn Thắng</strong>
+            <strong>{'Trần Văn Thắng '}
+              <i className="fa fa-caret-right" aria-hidden="true"></i>
+              {' BSKdsnkflsdnflkslkeflkselhasklfhlakshflkahflkahwkl'}
+            </strong>
             <small>Vừa ngay</small>
           </div>
         </div>
@@ -178,8 +181,12 @@ export default function Post({typePost}) {
               </div>
             </div>
           </div> :
-          <div className="text-and-img"> 
-            <p className="content-of-post">Đẹp như này thì công sao chịu nổi</p>
+          <div className="text-and-img">
+            <pre className="content-of-post">
+              Xin chào tất cả mọi người
+              Hôm nay của mọi người thế nào?
+              #proptit
+            </pre>
             <img
               className="img-post"
               src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"

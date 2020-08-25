@@ -60,6 +60,7 @@ export default function Navar() {
               placeholder="Search..."
               value={searchBoxContent}
               onChange={handleChange}
+              id="searchAll"
               className="nav-bar-search-input" />
             <button
               type="button"

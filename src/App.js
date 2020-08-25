@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import CreatePost from './view/Home/CreatePost'
 import Navar from './view/Home/Navar'
 import Post from './view/Home/Post'
 import RightPost from './view/Home/RightPost'
+import Group from './view/Groups/Group'
+import Login from './view/Login'
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false)
+
   return (
+    isLogin ?
     <>
       <Navar />
       <div className="content row">
@@ -20,6 +25,10 @@ function App() {
           <RightPost />
         </div>
       </div>
+      {/* <Group /> */}
+    </> :
+    <>
+      <Login isLogin={isLogin} setIsLogin={setIsLogin} />
     </>
   );
 }
