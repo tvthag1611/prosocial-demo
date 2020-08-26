@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Styles/Navar.css'
+import {Link, useRouteMatch, useLocation} from 'react-router-dom'
 export default function Navar() {
 
   let [searchBoxContent, setSetSearchBoxContent] = useState('');
@@ -48,6 +49,9 @@ export default function Navar() {
       </div >
     )
   })
+
+  let { pathname } = useLocation();
+
   return (
 
     <nav className="nav">
@@ -73,8 +77,8 @@ export default function Navar() {
         </div>
 
         <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <a><i className="fas fa-home nav-bar-icon"></i></a>
-          <a><i className="fas fa-user-friends nav-bar-icon"></i></a>
+          <Link to="/" excact className={pathname === "/" ? "nav-active" : ""}><i className="fas fa-home nav-bar-icon"></i></Link>
+          <Link to="/groups" className={pathname === "/groups" ? "nav-active" : ""}><i className="fas fa-user-friends nav-bar-icon"></i></Link>
           <a><i className="fas fa-image nav-bar-icon "></i></a>
           <a><i className="fas fa-comments nav-bar-icon"></i></a>
           <i

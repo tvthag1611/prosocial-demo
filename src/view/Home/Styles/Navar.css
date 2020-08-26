@@ -23,6 +23,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+.nav-currency a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-currency .nav-active {
+  color: rgb(0, 123, 255);
+}
+
 .nav-bar-brand {
   height: 40px;
   width: 40px;
