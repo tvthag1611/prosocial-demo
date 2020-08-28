@@ -53,60 +53,64 @@ export default function Navar() {
   let { pathname } = useLocation();
 
   return (
+    <>
+      {
+      pathname !== "/groups/create" ?
+      <nav className="nav">
+        <div className="row nav-bar col-sm-12">
+          <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
+            <img src="/img/ProPTIT-logo.png" className="nav-bar-brand" alt="proptit"/>
+            <form>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchBoxContent}
+                onChange={handleChange}
+                id="searchAll"
+                className="nav-bar-search-input" />
+              <button
+                type="button"
+                className="btn-search bg-grey"
+                onClick={handleClick}
+              >
+                <i className="fas fa-search nav-bar-search"></i>
+              </button>
+            </form>
+          </div>
 
-    <nav className="nav">
-      <div className="row nav-bar col-sm-12">
-        <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
-          <img src="img/ProPTIT-logo.png" className="nav-bar-brand" alt="proptit"/>
-          <form>
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchBoxContent}
-              onChange={handleChange}
-              id="searchAll"
-              className="nav-bar-search-input" />
-            <button
-              type="button"
-              className="btn-search bg-grey"
-              onClick={handleClick}
-            >
-              <i className="fas fa-search nav-bar-search"></i>
-            </button>
-          </form>
+          <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <Link to="/" className={pathname === "/" ? "nav-active" : ""}><i className="fas fa-home nav-bar-icon"></i></Link>
+            <Link to="/groups" className={pathname === "/groups" ? "nav-active" : ""}><i className="fas fa-user-friends nav-bar-icon"></i></Link>
+            <a><i className="fas fa-image nav-bar-icon "></i></a>
+            <a><i className="fas fa-comments nav-bar-icon"></i></a>
+            <i
+              className="fas fa-bell nav-bar-icon noti"
+              onClick={onShowNoticationClick}
+            ><i className="fas fa-circle noti-item"></i></i>
+            <img
+              className="user-ava"
+              onClick={onShowMultiTaskClick}
+              src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+              alt="avatar-user"
+            />
+          </div>
         </div>
-
-        <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <Link to="/" excact className={pathname === "/" ? "nav-active" : ""}><i className="fas fa-home nav-bar-icon"></i></Link>
-          <Link to="/groups" className={pathname === "/groups" ? "nav-active" : ""}><i className="fas fa-user-friends nav-bar-icon"></i></Link>
-          <a><i className="fas fa-image nav-bar-icon "></i></a>
-          <a><i className="fas fa-comments nav-bar-icon"></i></a>
-          <i
-            className="fas fa-bell nav-bar-icon noti"
-            onClick={onShowNoticationClick}
-          ><i className="fas fa-circle noti-item"></i></i>
-          <img
-            className="user-ava"
-            onClick={onShowMultiTaskClick}
-            src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
-            alt="avatar-user"
-          />
+        <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
+          <div className="block-container">
+            <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
+            <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
+            <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
+            <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
+            <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
+          </div>
         </div>
-      </div>
-      <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
-        <div className="block-container">
-          <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
-          <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
-          <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
-          <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
-          <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
+        <div className={showNotification ? "block-profile " : "block-profile dp-none"}>
+          <div className="block-container">
+            {notificationElm}
+          </div>
         </div>
-      </div>
-      <div className={showNotification ? "block-profile " : "block-profile dp-none"}>
-        <div className="block-container">
-          {notificationElm}
-        </div>
-      </div>
-    </nav>
+      </nav> : null
+      }
+    </>
   )
 }

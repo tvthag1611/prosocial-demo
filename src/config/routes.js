@@ -1,6 +1,11 @@
 import React from 'react'
 import Home from './../view/Home/Home'
-import Group from '../view/Groups/Group'
+import NewFeedGroup from './../view/Groups/NewFeedGroup'
+import CreateGroup from './../view/Groups/components/CreateGroup'
+import Group from './../view/Groups/Group'
+import AboutGroup from './../view/Groups/components/AboutGroup'
+import MembersGroup from '../view/Groups/components/MembersGroup'
+import HomeGroup from '../view/Groups/components/HomeGroup'
 
 export const routes = [
   {
@@ -18,64 +23,66 @@ export const routes = [
   {
     path: '/groups',
     exact: true,
-    component: () => <Group />,
+    component: () => <NewFeedGroup />,
     isPrivate: true
   },
-  // {
-  //   path: '/profile/:id',
-  //   exact: true,
-  //   component: () => <AsyncPage component='ProfilePage' />,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/profile',
-  //   redirect: true,
-  //   to: '/'
-  // },
-  // {
-  //   path: '/login',
-  //   exact: true,
-  //   component: () => <AsyncPage component='Login' />,
-  //   withoutNormalLayout: true,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/logout',
-  //   exact: true,
-  //   component: () => <AsyncPage component='Logout' />,
-  //   withoutNormalLayout: true,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/groups',
-  //   exact: true,
-  //   component: () => <AsyncPage component='Groups' />,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/group/:id',
-  //   exact: true,
-  //   component: Group,
-  //   title: 'Group',
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/404',
-  //   exact: true,
-  //   component: () => <AsyncPage component='404' />,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/about',
-  //   exact: true,
-  //   component: () => <AsyncPage component='AboutUs' />,
-  //   isPrivate: true
-  // },
-  // {
-  //   path: '/post/:id',
-  //   exact: true,
-  //   component: () => <AsyncPage component='Post' />,
-  //   isPrivate: true
-  // }
+  {
+    path: '/groups/create',
+    exact: false,
+    component: () => <CreateGroup />,
+    isPrivate: true
+  },
+  {
+    path: '/groups/:id',
+    exact: true,
+    component: () => {
+      return (
+        <div className="in-your-group">
+          <Group />
+          <HomeGroup />
+        </div>
+      )
+    },
+    isPrivate: true
+  },
+  {
+    path: '/groups/:id/about',
+    exact: false,
+    component: () => {
+      return (
+        <div className="in-your-group">
+          <Group />
+          <AboutGroup />
+        </div>
+      )
+    },
+    isPrivate: true
+  },
+  {
+    path: '/groups/:id/media',
+    exact: false,
+    component: () => {
+      return (
+        <div className="in-your-group">
+          <Group />
+          <strong>Media</strong>
+        </div>
+      )
+    },
+    isPrivate: true
+  },
+  {
+    path: '/groups/:id/members',
+    exact: false,
+    component: () => {
+      return (
+        <div className="in-your-group">
+          <Group />
+          <MembersGroup />
+        </div>
+      )
+    },
+    isPrivate: true
+  },
 ]
 export default routes

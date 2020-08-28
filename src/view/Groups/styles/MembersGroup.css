@@ -1,0 +1,14 @@
+.member-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.member-items i {
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}

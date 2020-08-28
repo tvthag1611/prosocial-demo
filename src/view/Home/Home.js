@@ -1,6 +1,6 @@
 import React from 'react'
-import CreatePost from './CreatePost'
-import Post from './Post'
+import CreatePost from '../Shared/CreatePost/CreatePost'
+import Post from '../Shared/Posts/Post'
 import RightPost from './RightPost'
 
 export default function Home() {

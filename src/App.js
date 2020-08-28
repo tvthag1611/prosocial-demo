@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navar from './view/Home/Navar'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import routes from './config/routes';
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app">
         <Navar />
         <Switch>
           {

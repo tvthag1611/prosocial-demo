@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './Styles/CreatePost.css'
+import './CreatePost.css'
 import {Modal} from 'react-bootstrap'
 export default function CreatePost(props) {
 

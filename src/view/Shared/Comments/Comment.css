@@ -1,0 +1,27 @@
+.my-custom-scrollbar {
+  position: relative;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.my-custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.your-comment {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+}
+
+.your-comment .avatar-cmt {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;;
+  background-color: aqua;
+  margin-right: 10px;
+}
+
+.your-comment .what-cmt {
+  flex: 1;
+}

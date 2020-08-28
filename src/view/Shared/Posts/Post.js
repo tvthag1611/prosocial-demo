@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import './Styles/Post.css'
+import './Post.css'
 import {Modal} from 'react-bootstrap'
+import Comment from '../Comments/Comment'
 export default function Post({typePost}) {
 
   const [showMenuPost, setShowMenuPost] = useState(false)
@@ -182,11 +183,9 @@ export default function Post({typePost}) {
             </div>
           </div> :
           <div className="text-and-img">
-            <pre className="content-of-post">
-              Xin chào tất cả mọi người
-              Hôm nay của mọi người thế nào?
-              #proptit
-            </pre>
+            <p className="content-of-post">
+              {'Xin chào tất cả mọi người\nHôm nay của mọi người thế nào\n#proptit'}
+            </p>
             <img
               className="img-post"
               src="https://thuthuatnhanh.com/wp-content/uploads/2019/05/gai-xinh-toc-ngan-facebook.jpg"
@@ -419,43 +418,8 @@ export default function Post({typePost}) {
                 <div className="header-comment">
                   <strong>Comments</strong>
                 </div>
-                <div className="table-wrapper-scroll-y my-custom-scrollbar">
-                  <table className="table not-table">
-                    <tbody>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <label
-                              htmlFor="write-comment"
-                            >Reply</label>  
-                          </div>
-                        </div>
-                      </tr>
-                      <tr className="your-comment">
-                        <div className="avatar-cmt"></div>
-                        <div className="what-cmt">
-                          <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-                          <div className="reaction-cmt">
-                            <div className="like-in-post">
-                              <i className="fas fa-heart like-post"></i>
-                              <p>3</p>  
-                            </div>
-                            <label
-                              htmlFor="write-comment"
-                            >Reply</label>  
-                          </div>
-                        </div>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                </div>
+                {/* Comment in here */}
+                <Comment />
                 <div className="react-in-post">
                 <div className="like-cmt-share-post">
                     {/* <i className="far fa-heart"></i> */}

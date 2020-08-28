@@ -1,6 +1,6 @@
 import React from 'react'
 import './../styles/InGroup.css'
-import Post from './../../Home/Post'
+import Post from '../../Shared/Posts/Post'
 
 export default function InGroup() {
   return (
