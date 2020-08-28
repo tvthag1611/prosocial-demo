@@ -1,5 +1,7 @@
 import React from 'react'
 import Home from './../view/Home/Home'
+import Group from '../view/Groups/Group'
+import Profile from '../view/Profile/Profile'
 import NewFeedGroup from './../view/Groups/NewFeedGroup'
 import CreateGroup from './../view/Groups/components/CreateGroup'
 import Group from './../view/Groups/Group'
@@ -24,6 +26,12 @@ export const routes = [
     path: '/groups',
     exact: true,
     component: () => <NewFeedGroup />,
+    isPrivate: true
+  },
+  {
+    path: '/profile',
+    exact: true,
+    component: () => <Profile />,
     isPrivate: true
   },
   {
