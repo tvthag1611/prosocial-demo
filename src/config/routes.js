@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './../view/Home/Home'
 import Group from '../view/Groups/Group'
+import Profile from '../view/Profile/Profile'
 
 export const routes = [
   {
@@ -19,6 +20,12 @@ export const routes = [
     path: '/groups',
     exact: true,
     component: () => <Group />,
+    isPrivate: true
+  },
+  {
+    path: '/profile',
+    exact: true,
+    component: () => <Profile />,
     isPrivate: true
   },
   // {

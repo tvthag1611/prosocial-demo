@@ -95,7 +95,9 @@ export default function Navar() {
       </div>
       <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
         <div className="block-container">
-          <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
+          <Link to="/profile" excact className={pathname === "/" ? "nav-active" : ""}>
+            <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
+          </Link>
           <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
           <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
           <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
