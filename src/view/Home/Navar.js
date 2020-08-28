@@ -94,29 +94,22 @@ export default function Navar() {
               alt="avatar-user"
             />
           </div>
-        </div>
-        <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
-          <div className="block-container">
-            <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
-            <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
-            <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
-            <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
-            <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
+
+          <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
+            <div className="block-container">
+              <Link to="/profile" excact className={pathname === "/" ? "nav-active" : ""}>
+                <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
+              </Link>
+              <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
+              <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
+              <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
+              <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className={showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"}>
-        <div className="block-container">
-          <Link to="/profile" excact className={pathname === "/" ? "nav-active" : ""}>
-            <div className="dropdown-item"><a><i className="far fa-user-circle"></i>Profile</a></div>
-          </Link>
-          <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
-          <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
-          <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
-          <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
-        <div className={showNotification ? "block-profile " : "block-profile dp-none"}>
-          <div className="block-container">
-            {notificationElm}
+          <div className={showNotification ? "block-profile " : "block-profile dp-none"}>
+            <div className="block-container">
+              {notificationElm}
+            </div>
           </div>
         </div>
       </nav> : null
