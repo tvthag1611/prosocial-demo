@@ -105,10 +105,13 @@
   align-items: center;
   background-color: white;
   cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .go-to-group:hover {
   background-color: rgb(223, 223, 223);
+  color: inherit;
 }
 
 .go-to-group img {
@@ -218,10 +221,13 @@
   align-items: center;
   padding: 5px;
   cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .list-group-item__mobile:hover {
   background-color: rgb(223, 223, 223);
+  color: inherit;
 }
 
 .list-group-item__mobile img {

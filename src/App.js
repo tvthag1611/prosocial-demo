@@ -3,9 +3,15 @@ import './App.css';
 import Navar from './view/Home/Navar'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import routes from './config/routes';
+import Login from './view/Login';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { isLogged } = useSelector(state => state.homeReducer)
+  
   return (
+    !isLogged ?
+      <Login /> :
     <Router>
       <div className="app">
         <Navar />

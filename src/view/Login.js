@@ -1,21 +1,30 @@
 import React, { useState } from 'react'
 import './Login.css'
+import { useSelector, useDispatch } from 'react-redux'
+import * as Actions from '../redux/action-creators/home'
 
-export default function Login({isLogin, setIsLogin}) {
+export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [clickLogin, setClickLogin] = useState(false)
+
+  const { isLogged } = useSelector(state => state.homeReducer)
+  console.log(isLogged)
+
+  const dispatch  = useDispatch()
+
   const loginSystem = () => {
     setClickLogin(true)
-    if (username === 'tvthag' && password === '123') {
-      setIsLogin(true)
-    }
+    dispatch(Actions.updateLogin({
+      username,
+      password
+    }))
   }
 
   return (
     <div className="login">
-      <img src="img/ProPTIT-logo.png" />
+      <img src="/img/ProPTIT-logo.png" />
       <h4>Đăng nhập</h4>
       <div className="form-group">
         <input
@@ -60,7 +69,7 @@ export default function Login({isLogin, setIsLogin}) {
         Login
       </button>
       { clickLogin ?
-        !isLogin ?
+        !isLogged ?
        <small className="feedback-login">
           Tài khoản hoặc mật khẩu sai!
       </small> : null : null

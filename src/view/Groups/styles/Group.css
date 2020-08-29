@@ -13,8 +13,9 @@
   width: 70%;
   display: block;
   height: 24vw;
-  background-color: violet;
   border-radius: 0px 0px 20px 20px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .in-your-group__header .header-group {
@@ -123,7 +124,7 @@
     width: 98%;
     justify-content: center;
   }
-  .header-group {
+  .in-your-group__header .header-group {
     flex-direction: column;
   }
   .header-group__name {

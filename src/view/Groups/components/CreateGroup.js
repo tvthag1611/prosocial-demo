@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import './../styles/CreateGroup.css'
 import './../../Shared/CreatePost/CreatePost.css'
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function CreateGroup() {
 
   const history = useHistory()
+  const { groups } = useSelector(state => state.groupReducer)
+  console.log(groups, typeof(groups))
+
   const [group, setGroup] = useState({
     url: '',
-    id: '',
+    id: 3,
     name: '',
     description: '',
     members: [],
@@ -93,7 +97,8 @@ export default function CreateGroup() {
             <button
               type="button"
               className="create-new-group__button"
-              disabled
+              disabled={group.name === ''}
+              onClick={() => console.log(group)}
             >
               Create
             </button>
@@ -115,18 +120,33 @@ export default function CreateGroup() {
                 </p>
               </div>
               <div className="header-group__invite">
-                <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-                <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-                <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-                <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-                <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-                {/* more invited and img is user online */}
-                <div className="invited-group__mores">
-                  <img  src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
-                    className="invited-group__more-user"
-                  />
-                  <i className="fa fa-ellipsis-h invited-group__more" aria-hidden="true"></i>
-                </div>
+                {
+                  group.members.length <= 5 ?
+                  group.members.map((member,index) => {
+                    if (index <= 4) {
+                      return (
+                        <img src={member.avatar} key={index}/>
+                      )
+                    }
+                  }) : 
+                  group.members.map((member,index) => {
+                    if (index <= 3) {
+                      return (
+                        <img src={member.avatar} key={index}/>
+                      )
+                    }
+                    if (index == 4) {
+                      return (
+                        <div className="invited-group__mores" key={index}>
+                          <img  src={member.avatar}
+                            className="invited-group__more-user"
+                          />
+                          <i className="fa fa-ellipsis-h invited-group__more" aria-hidden="true"></i>
+                        </div>
+                      )
+                    }
+                  })
+                }
                 <button type="button" className="invite-member-to-group">
                   <i className="fa fa-plus" aria-hidden="true"></i>
                   Invite

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './../styles/MenuGroup.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function MenuGroup() {
   let history = useHistory()
@@ -8,33 +9,46 @@ export default function MenuGroup() {
     history.push("/groups/create")
   }
 
-  const moreGroup =
-  <>
-    <div className="go-to-group">
-      <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-      <div className="name-go-to-group">
-        <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-        <p>2 thang truoc</p>
-      </div>
-    </div>
-    <div className="go-to-group">
-      <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-      <div className="name-go-to-group">
-        <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-        <p>2 thang truoc</p>
-      </div>
-    </div>
-    <div className="go-to-group">
-      <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-      <div className="name-go-to-group">
-        <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-        <p>2 thang truoc</p>
-      </div>
-    </div>
-  </>
+  const { groups } = useSelector(state => state.groupReducer)
+  console.log(groups, typeof(groups))
 
-  const [showMoreGroup, setShowMoreGroup] = useState(false)
+  const user = {
+    avatar: "http://apis.aiforce.xyz/media/acddd8ca-ec64-41ff-b92b-e2caf03a1d16.jpg",
+    url: "http://apis.aiforce.xyz/auth/users/1/",
+    id: 1,
+    username: "proptit",
+    displayName: "ProAdmin",
+    phoneNumber: "03876975999",
+    facebook: "https://www.facebook.com/ntheanh201",
+    role: 0,
+    dateOfBirth: "1999-05-03T13:35:56Z",
+    description: "Kind boy? Maybe.",
+    email: "ntanh311@gmail.com",
+    participatingGroup: [
+        {
+            id: 1,
+            cover: "http://apis.aiforce.xyz/media/default.jpg",
+            name: "NewFeeds",
+            isAdmin: true
+        },
+        {
+            id: 2,
+            cover: "http://apis.aiforce.xyz/media/default.jpg",
+            name: "D18",
+            isAdmin: false
+        }
+    ],
+    userGender: 1,
+    cover: "http://apis.aiforce.xyz/media/beac9dad-755a-4a1e-9a4c-4d6b44dbe032.jpg",
+    className: "ProVCL"
+  }
+
+  const groupManager = user.participatingGroup.filter((group) => group.isAdmin)
+  const groupMember = user.participatingGroup.filter((group) => !group.isAdmin)
+
+  const [showMoreGroup, setShowMoreGroup] = useState(groupManager.length <= 3)
   const [showMenuGroup, setShowMenuGroup] = useState(false)
+  const [showMenuGroupMobile, setShowMenuGroupMobile] = useState(0)
 
   return (
     <>
@@ -49,11 +63,19 @@ export default function MenuGroup() {
           </label>
         </div>
         <div className="menu-in-group__mobile">
-          <button type="button" className="your-manager__mobile">
+          <button
+            type="button"
+            className="your-manager__mobile"
+            onClick={() => setShowMenuGroupMobile(0)}
+          >
             <i className="fas fa-marker"></i>
             Manager
           </button>
-          <button type="button" className="your-group__mobile">
+          <button 
+            type="button"
+            className="your-group__mobile"
+            onClick={() => setShowMenuGroupMobile(1)}
+          >
             <i className="fa fa-users" aria-hidden="true"></i>
             Groups
           </button>
@@ -67,50 +89,25 @@ export default function MenuGroup() {
           </button>
         </div>
         <div className="list-group__mobile">
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>Ban su kien</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>Ban dao tao</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>Ban truyen thong</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>Ban nhan su</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>Ban vo van</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
-          <div className="list-group-item__mobile">
-            <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-            <strong>hsdjkghsdjkhg</strong>
-          </div>
+          {
+            showMenuGroupMobile === 0 ?
+            groupManager.map(group => {
+              return (
+                <Link to={`groups/${group.id}`} className="list-group-item__mobile" key={group.id}>
+                  <img src={group.cover}/>
+                  <strong>{group.name}</strong>
+                </Link>
+              )
+            }) :
+            groupMember.map(group => {
+              return (
+                <Link to={`groups/${group.id}`} className="list-group-item__mobile" key={group.id}>
+                  <img src={group.cover}/>
+                  <strong>{group.name}</strong>
+                </Link>
+              )
+            })
+          }
         </div>
       </div>
       {/* View menu group in laptop and tablet */}
@@ -146,28 +143,37 @@ export default function MenuGroup() {
           </div>
           <div className="your-manager">
             <h5>Groups You Manager</h5>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsdnflkslkeflkselkfnlksnefklnslkenflksndlfknselnfles</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
-            {showMoreGroup ? moreGroup : null}
+            {
+              groupManager.map((group, index) => {
+                if (index <=2) {
+                  return (
+                    <Link to={`groups/${group.id}`} className="go-to-group" key={group.id}>
+                      <img src={group.cover}/>
+                      <div className="name-go-to-group">
+                      <h5>{group.name}</h5>
+                        {/* <p>2 thang truoc</p> */}
+                      </div>
+                    </Link>
+                  )
+                }
+              })
+            }
+            {showMoreGroup ?
+              groupManager.map((group, index) => {
+                if (index >2) {
+                  return (
+                    <Link to={`groups/${group.id}`} className="go-to-group" key={group.id}>
+                      <img src={group.cover}/>
+                      <div className="name-go-to-group">
+                      <h5>{group.name}</h5>
+                        {/* <p>2 thang truoc</p> */}
+                      </div>
+                    </Link>
+                  )
+                }
+              })
+              : null
+            }
             {!showMoreGroup ?
               <button
                 type="button"
@@ -180,27 +186,19 @@ export default function MenuGroup() {
           </div>
           <div className="your-group">
           <h5>Your Groups</h5>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsdnflkslkeflkselkfnlks</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsdnflkslkefl</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
-            <div className="go-to-group">
-              <img src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"/>
-              <div className="name-go-to-group">
-                <h5>BSKdsnkflsd</h5>
-                <p>2 thang truoc</p>
-              </div>
-            </div>
+            {
+              groupMember.map(group => {
+                return (
+                  <Link to={`groups/${group.id}`} className="go-to-group" key={group.id}>
+                    <img src={group.cover}/>
+                    <div className="name-go-to-group">
+                      <h5>{group.name}</h5>
+                      {/* <p>2 thang truoc</p> */}
+                    </div>
+                  </Link>
+                )
+              })
+            }
             <br />
           </div>
         </div>
