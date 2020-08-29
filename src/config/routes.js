@@ -7,6 +7,8 @@ import CreateGroup from './../view/Groups/components/CreateGroup'
 import AboutGroup from './../view/Groups/components/AboutGroup'
 import MembersGroup from '../view/Groups/components/MembersGroup'
 import HomeGroup from '../view/Groups/components/HomeGroup'
+import EditGroup from '../view/Groups/components/EditGroup'
+import Gallery from '../view/Gallery/Gallery'
 
 export const routes = [
   {
@@ -87,6 +89,26 @@ export const routes = [
           <Group />
           <MembersGroup />
         </div>
+      )
+    },
+    isPrivate: true
+  },
+  {
+    path: '/groups/:id/edit',
+    exact: false,
+    component: () => {
+      return (
+        <EditGroup />
+      )
+    },
+    isPrivate: true
+  },
+  {
+    path: '/gallery',
+    exact: true,
+    component: () => {
+      return (
+        <Gallery />
       )
     },
     isPrivate: true

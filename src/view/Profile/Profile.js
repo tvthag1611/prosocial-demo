@@ -1,6 +1,6 @@
 import React from 'react'
 import './Profile.css'
-import { ImageView } from '../../share/ImageView/ImageView'
+import { ImageView } from '../Shared/ImageView/ImageView'
 
 export default function Profile({ state, setState }) {
   

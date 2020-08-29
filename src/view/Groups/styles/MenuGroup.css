@@ -32,6 +32,10 @@
   border-bottom: 1px solid #e2e2e2;
 }
 
+.title-group h3 {
+  font-weight: bold;
+}
+
 .search-group {
   width: 30px;
   height: 30px;
@@ -92,6 +96,7 @@
 
 .your-manager h5, .your-group h5 {
   padding: 10px 0px;
+  font-weight: bold;
 }
 
 .go-to-group {
@@ -130,6 +135,7 @@
 
 .name-go-to-group h5 {
   word-break: break-all;
+  font-weight: normal;
 }
 
 .name-go-to-group p {

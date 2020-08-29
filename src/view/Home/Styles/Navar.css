@@ -99,20 +99,21 @@ a {
   padding-right: 15px; */
   width: 100%;
   position: absolute;
-  top: 131px !important;
+  top: 130px !important;
   z-index: 999999;
   background-color: white;
 }
 .block-container {
   position: relative;
 }
+
 .dropdown-profile {
   /* padding-left: 15px;
   padding-right: 15px; */
   width: 100%;
   position: absolute;
   right: 0px;
-  top: 131px !important;
+  top: 130px !important;
   z-index: 999999;
   background-color: white;
 }

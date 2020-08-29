@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Group.css'
 import './styles/CreateGroup.css'
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import * as groupActions from '../../redux/action-creators/group'
+import {Modal} from 'react-bootstrap'
 
 export default function Group() {
 
@@ -18,16 +19,33 @@ export default function Group() {
 
   const { group } = useSelector(state => state.groupReducer)
 
+  const deleteThisGroup = () => {
+    dispatch(groupActions.deleteGroup(id))
+  }
+
+  const [showMoreGroup, setShowMoreGroup] = useState(false)
+
   return (
     group ? 
     <div className="in-your-group__header">
-      <img
-        src={group.cover}
-        className="in-your-group__cover"
-      />
+      <div className="in-your-group__cover">
+        <img
+          src={group.cover}
+        />
+        <button type="button" className="edit-cover-group">
+          <i className="fas fa-pen"></i>
+          Edit
+        </button>
+      </div>
       <div className="header-group">
         <div className="header-group__name">
-        <h2>{group.name}</h2>
+        <h2 className="header-group__name-group">{group.name}</h2>
+        {/* for mobile */}
+        <Link to={`/groups/${id}/edit`} className="more-in-mobile">
+          <h2>{group.name}</h2>
+          <i className="fas fa-chevron-down"></i>
+        </Link>
+        {/* ----- */}
           <p>
             <i className="fas fa-users"></i>
             {group.members.length}
@@ -76,7 +94,31 @@ export default function Group() {
         </div>
         <div className="in-your-group__menu-more">
           <i className="fa fa-search" aria-hidden="true"></i>
-          <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+          <i 
+            className="fa fa-ellipsis-h"
+            aria-hidden="true"
+            onClick={() => setShowMoreGroup(true)}
+          >
+          </i>
+          <Modal
+            show={showMoreGroup}
+            onHide={() => setShowMoreGroup(false)}
+            centered
+            size="sm"
+          >
+            <div className="menu-post-item">
+              <button 
+                className="btn"
+                onClick={deleteThisGroup}
+              >Xoá</button>
+              <Link to={`/groups/${id}/edit`}>Sửa</Link>
+              <button className="btn">Rời nhóm</button>
+              <button
+                className="btn"
+                onClick={() => setShowMoreGroup(false)}
+              >Cancel</button>
+            </div>
+          </Modal>
         </div>
       </div>
     </div> : <div></div>

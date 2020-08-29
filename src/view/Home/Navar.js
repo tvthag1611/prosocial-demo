@@ -46,7 +46,7 @@ export default function Navar() {
           {item.action}
 
         </div>
-        <div className="notification-time"><smal>{item.timeCreated}</smal></div>
+        <div className="notification-time"><small>{item.timeCreated}</small></div>
       </div >
     )
   })
@@ -64,12 +64,12 @@ export default function Navar() {
   })
   let { pathname } = useLocation();
   return (
-
+    pathname !== '/groups/create' ?
     <nav className="nav ">
       <div className="row nav-bar col-sm-12">
         <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
-          <img src="img/ProPTIT-logo.png" className="nav-bar-brand" />
-          <form >
+          <img src="/img/ProPTIT-logo.png" className="nav-bar-brand" />
+          <form>
             <input
               type="text"
               placeholder="Search..."
@@ -81,7 +81,7 @@ export default function Navar() {
               className="btn-search"
               onClick={handleClick}
             >
-              <i class="fas fa-search nav-bar-search bg-grey"></i>
+              <i className="fas fa-search nav-bar-search bg-grey"></i>
             </button>
           </form>
         </div>
@@ -89,16 +89,16 @@ export default function Navar() {
         <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <NavLink exact={true} activeClassName='nav-active' to="/" ><i className="fas fa-home nav-bar-icon"></i></NavLink>
           <NavLink activeClassName='nav-active' to="/groups" ><i className="fas fa-user-friends nav-bar-icon"></i></NavLink>
-          <a><i class="fas fa-image nav-bar-icon "></i></a>
-          <a><i class="fas fa-comments nav-bar-icon"></i></a>
+          <NavLink activeClassName='nav-active' to="/gallery"><i className="fas fa-image nav-bar-icon "></i></NavLink>
+          <NavLink activeClassName='nav-active' to="/messenger"><i className="fas fa-comments nav-bar-icon"></i></NavLink>
           <i
-            class="fas fa-bell nav-bar-icon noti"
+            className="fas fa-bell nav-bar-icon noti"
             onClick={onShowNoticationClick}
           >
             <span className={showNotification ? "rectangle " : "rectangle dp-none"}></span>
-            <i class="fas fa-circle noti-item"></i></i>
+            <i className="fas fa-circle noti-item"></i></i>
           <i
-            class="fas nav-img  nav-bar-icon "
+            className="fas nav-img  nav-bar-icon "
             onClick={onShowMultiTaskClick}
           >
             <img
@@ -117,12 +117,11 @@ export default function Navar() {
         ref={refTasks}
       >
         <div className="block-container">
-
-          <div className="dropdown-item"><a><i class="far fa-user-circle"></i>Profile</a></div>
-          <div className="dropdown-item"><a><i class="fas fa-cog"></i>Setting</a></div>
-          <div className="dropdown-item"><a><i class="far fa-envelope"></i>Inbox</a></div>
-          <div className="dropdown-item"><a><i class="far fa-question-circle"></i>Need help?</a></div>
-          <div className="dropdown-item"><a><i class="fas fa-sign-out-alt"></i>Sign out</a></div>
+          <Link to="/profile" className="dropdown-item"><a><i className="far fa-user-circle"></i></a>Profile</Link>
+          <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
+          <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
+          <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
+          <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
         </div>
       </div>
       <div
@@ -133,6 +132,6 @@ export default function Navar() {
           {notificationElm}
         </div>
       </div>
-    </nav >
+    </nav > : <div></div>
   )
 }

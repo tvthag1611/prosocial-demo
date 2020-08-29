@@ -1,0 +1,9 @@
+.gallery-clb {
+  padding-top: 72px;
+}
+
+@media only screen and (max-width: 767px) {
+  .gallery-clb {
+    padding-top: 130px;
+  }
+}

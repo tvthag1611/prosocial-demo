@@ -3,6 +3,7 @@ import './../styles/CreateGroup.css'
 import './../../Shared/CreatePost/CreatePost.css'
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import EditGroup from './EditGroup'
 
 export default function CreateGroup() {
 
