@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './../styles/MembersGroup.css'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import * as groupActions from '../../../redux/action-creators/group'
 
 export default function MembersGroup() {
   let { id } = useParams()
 
-  const groups = useSelector(state => state.groupReducer)
+  const dispatch =  useDispatch()
 
-  const group = groups.find(group => group.id === Number(id))
+  useEffect(() => {
+    dispatch(groupActions.getGroupById(id))
+  }, [])
+
+  const { group } = useSelector(state => state.groupReducer)
   return (
     <>
       <div className="about-group">
         <h4>Admins</h4>
         {
-          group.admins.map(admin => {
+          group ?.admins.map(admin => {
             return (
               <div className="member-items" key={admin.id}>
                 <div className = 'write-post-header'>
@@ -34,7 +39,7 @@ export default function MembersGroup() {
       <div className="about-group">
         <h4>Members</h4>
         {
-          group.members.map(member => {
+          group ?.members.map(member => {
             return (
               <div className="member-items"  key={member.id}>
                 <div className = 'write-post-header'>

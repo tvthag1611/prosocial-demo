@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './../styles/MenuGroup.css'
 import { useHistory, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import * as userActions from '../../../redux/action-creators/home'
 
 export default function MenuGroup() {
   let history = useHistory()
@@ -9,39 +10,9 @@ export default function MenuGroup() {
     history.push("/groups/create")
   }
 
-  const { groups } = useSelector(state => state.groupReducer)
-  console.log(groups, typeof(groups))
+  const { user } = useSelector(state => state.homeReducer)
 
-  const user = {
-    avatar: "http://apis.aiforce.xyz/media/acddd8ca-ec64-41ff-b92b-e2caf03a1d16.jpg",
-    url: "http://apis.aiforce.xyz/auth/users/1/",
-    id: 1,
-    username: "proptit",
-    displayName: "ProAdmin",
-    phoneNumber: "03876975999",
-    facebook: "https://www.facebook.com/ntheanh201",
-    role: 0,
-    dateOfBirth: "1999-05-03T13:35:56Z",
-    description: "Kind boy? Maybe.",
-    email: "ntanh311@gmail.com",
-    participatingGroup: [
-        {
-            id: 1,
-            cover: "http://apis.aiforce.xyz/media/default.jpg",
-            name: "NewFeeds",
-            isAdmin: true
-        },
-        {
-            id: 2,
-            cover: "http://apis.aiforce.xyz/media/default.jpg",
-            name: "D18",
-            isAdmin: false
-        }
-    ],
-    userGender: 1,
-    cover: "http://apis.aiforce.xyz/media/beac9dad-755a-4a1e-9a4c-4d6b44dbe032.jpg",
-    className: "ProVCL"
-  }
+  console.log(user)
 
   const groupManager = user.participatingGroup.filter((group) => group.isAdmin)
   const groupMember = user.participatingGroup.filter((group) => !group.isAdmin)

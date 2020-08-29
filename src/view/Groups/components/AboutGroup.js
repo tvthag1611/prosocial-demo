@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './../styles/AboutGroup.css'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import * as groupActions from '../../../redux/action-creators/group'
 
 export default function AboutGroup() {
   let { id } = useParams()
 
-  const groups = useSelector(state => state.groupReducer)
+  const dispatch =  useDispatch()
 
-  const group = groups.find(group => group.id === Number(id))
+  useEffect(() => {
+    dispatch(groupActions.getGroupById(id))
+  }, [])
+
+  const { group } = useSelector(state => state.groupReducer)
   return (
     <>
       <div className="about-group">
         <h4>About Group</h4>
         <p>
-          {group.description} 
+          {group ?.description} 
         </p>
       </div>
       <div className="about-group">
@@ -22,15 +27,15 @@ export default function AboutGroup() {
         <div className="about-group__members">
           <div className="header-group__invite">
           {
-            group.members.length <= 7 ?
-            group.members.map((member,index) => {
+            group ?.members.length <= 7 ?
+            group ?.members.map((member,index) => {
               if (index <= 6) {
                 return (
                   <img src={member.avatar} key={index}/>
                 )
               }
             }) : 
-            group.members.map((member,index) => {
+            group ?.members.map((member,index) => {
               if (index <= 5) {
                 return (
                   <img src={member.avatar} key={index}/>
@@ -50,7 +55,7 @@ export default function AboutGroup() {
           }
           </div>
         </div>
-        <p>{`${group.members[0].displayName} và ${group.members.length - 1} người khác`}</p>
+        <p>{`${group ?.members[0].displayName} và ${group ?.members.length - 1} người khác`}</p>
       </div>
     </>
   )

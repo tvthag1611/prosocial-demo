@@ -30,6 +30,7 @@ export const getAllGroups = () => {
         payload: null
       })
     }
+    return payload
   }
 }
 
@@ -47,6 +48,7 @@ export const getGroupById = id => {
         payload: `Can't get the information about this group`
       })
     }
+    return payload
   }
 }
 

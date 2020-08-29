@@ -15,6 +15,7 @@ export const getAllPosts = (id = 1, type = 'group') => {
       type: Actions.GET_ALL_POSTS,
       payload
     })
+    return payload
   }
 }
 
@@ -25,6 +26,7 @@ export const getPostById = id => {
       type: Actions.GET_POST_BY_ID,
       payload
     })
+    return payload
   }
 }
 

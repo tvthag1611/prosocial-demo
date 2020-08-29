@@ -49,6 +49,7 @@ export const updateLogin = (payload) => {
         type: Actions.IS_LOGGED,
         payload: isLogged
       })
+      
     } else {
       return 401
     }

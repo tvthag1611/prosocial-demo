@@ -7,9 +7,7 @@ import { useSelector } from 'react-redux'
 export default function CreateGroup() {
 
   const history = useHistory()
-  const { groups } = useSelector(state => state.groupReducer)
-  console.log(groups, typeof(groups))
-
+  
   const [group, setGroup] = useState({
     url: '',
     id: 3,

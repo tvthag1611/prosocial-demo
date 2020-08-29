@@ -8,7 +8,7 @@ export const getAllGroupsService = () => {
   return axios
     .get(`${environments.BASE_URL}groups/`)
     .then(response => {
-      return convertToGroupArray(response.data)
+      return response.data
     })
     .catch(error => {
       // if (error.response) {
@@ -22,7 +22,7 @@ export const getGroupByIdService = id => {
   return axios
     .get(`${environments.BASE_URL}groups/${id}/`)
     .then(response => {
-      return convertToGroupType(response.data)
+      return response.data
     })
     .catch(error => {
       return null

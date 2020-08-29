@@ -4,28 +4,22 @@ import './styles/CreateGroup.css'
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import * as groupActions from '../../redux/action-creators/group'
-import {getAllGroupsService} from './../../packages/services'
 
 export default function Group() {
 
   let { id } = useParams()
   let { pathname } = useLocation()
 
-  const group = getAllGroupsService()
-
   const dispatch =  useDispatch()
 
   useEffect(() => {
-    dispatch(groupActions.getAllGroups())
+    dispatch(groupActions.getGroupById(id))
   }, [])
 
-  const state = useSelector(state => state.groupReducer)
-
-  console.log(state)
-
-  // const group = groups.find(group => group.id === Number(id))
+  const { group } = useSelector(state => state.groupReducer)
 
   return (
+    group ? 
     <div className="in-your-group__header">
       <img
         src={group.cover}
@@ -85,6 +79,6 @@ export default function Group() {
           <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
         </div>
       </div>
-    </div>
+    </div> : <div></div>
   )
 }

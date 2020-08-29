@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Post from '../../Shared/Posts/Post'
 import './../styles/styleGroup.css'
 import CreatePost from '../../Shared/CreatePost/CreatePost'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import * as groupActions from '../../../redux/action-creators/group'
 
 export default function HomeGroup() {
   let { id } = useParams()
 
-  const groups = useSelector(state => state.groupReducer)
+  const dispatch =  useDispatch()
 
-  const group = groups.find(group => group.id === Number(id))
+  useEffect(() => {
+    dispatch(groupActions.getGroupById(id))
+  }, [])
+
+  const { group } = useSelector(state => state.groupReducer)
+
   return (
     <div className="home-group">
       <div className="home-group__post">
@@ -22,7 +28,7 @@ export default function HomeGroup() {
       <div className="home-group__about">
         <h4>About</h4>
         <p>
-          {group.description} 
+          {group && group.description} 
         </p>
       </div>
     </div>

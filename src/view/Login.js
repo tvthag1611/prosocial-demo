@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Login.css'
 import { useSelector, useDispatch } from 'react-redux'
 import * as Actions from '../redux/action-creators/home'
@@ -21,6 +21,10 @@ export default function Login() {
       password
     }))
   }
+
+  useEffect(() => {
+    dispatch(Actions.updatePreloader())
+  }, [])
 
   return (
     <div className="login">

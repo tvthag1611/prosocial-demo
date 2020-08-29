@@ -53,7 +53,7 @@ export const fetchUserDataService = () => {
       }
     })
     .then((response) => {
-      const user = convertToUserType(response.data)
+      const user = response.data
       localStorage.setItem('userData', JSON.stringify(user))
       return user
     })
