@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navar from './view/Home/Navar'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import routes from './config/routes';
 import Login from './view/Login';
 import { useSelector } from 'react-redux';

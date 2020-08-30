@@ -7,19 +7,24 @@ export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [clickLogin, setClickLogin] = useState(false)
+  const [error, setError] = useState(false)
 
   const { isLogged } = useSelector(state => state.homeReducer)
-  console.log(isLogged)
+  
 
   const dispatch  = useDispatch()
 
+  const handleErrorLogin = (res) => {
+    if (res === 401) {
+      setError('Tài khoản hoặc mật khẩu sai!')
+    }
+  }
+
   const loginSystem = () => {
-    setClickLogin(true)
     dispatch(Actions.updateLogin({
       username,
       password
-    }))
+    })).then(res => handleErrorLogin(res))
   }
 
   useEffect(() => {
@@ -72,12 +77,9 @@ export default function Login() {
       >
         Login
       </button>
-      { clickLogin ?
-        !isLogged ?
-       <small className="feedback-login">
-          Tài khoản hoặc mật khẩu sai!
-      </small> : null : null
-      }
+        <small className="feedback-login">
+          {error}
+        </small>
     </div>
   )
 }

@@ -71,7 +71,7 @@
 }
 
 .name-avatar strong {
-  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .post-content .content-of-post {
@@ -182,6 +182,12 @@
 
 .in-post .content-in-post {
   flex: 2;
+  height: auto;
+}
+
+.content-in-post .content-img {
+  width: 100%;
+  height: auto;
 }
 
 .in-post .comment-in-post {
@@ -302,4 +308,8 @@
 
 .modal {
   z-index: 100000 !important;
+}
+
+.text-in-post {
+  margin: 20px 0px;
 }
