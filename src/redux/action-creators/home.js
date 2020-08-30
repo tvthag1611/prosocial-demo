@@ -71,3 +71,12 @@ export const updateUserInfo = (payload) => {
       payload
     })
 }
+
+export const logoutUser = (payload) => {
+  return (dispatch) => {
+    dispatch({
+      type: Actions.IS_LOGGED,
+      payload: false
+    })
+  }
+}

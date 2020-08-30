@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Styles/Navar.css'
 import useClickOutside from './Function/useClickOutside'
-import { Link, useRouteMatch, useLocation, NavLink } from 'react-router-dom'
+import { Link, useLocation, NavLink, useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import * as Actions from '../../redux/action-creators/home'
 export default function Navar() {
+
+  let params = useParams()
+  console.log(params)
+
+  const dispatch = useDispatch()
+
+  const {user} = useSelector(state => state.homeReducer)
 
   let [searchBoxContent, setSetSearchBoxContent] = useState(null);
   let [showMultiTask, setShowMultiTask] = useState(false);
@@ -20,6 +29,10 @@ export default function Navar() {
   const onShowNoticationClick = () => {
     setShowMultiTask(false);
     setShowNotification(!showNotification);
+  }
+  const handleLogoutSystem = () => {
+    localStorage.removeItem('userData');
+    dispatch(Actions.logoutUser(false))
   }
   var notifications = [
     {
@@ -62,9 +75,9 @@ export default function Navar() {
       setShowNotification(false)
     }
   })
-  let { pathname } = useLocation();
+  let { pathname } = useLocation()
   return (
-    pathname !== '/groups/create' ?
+    pathname !== `/groups/create` && pathname !== `/profile/${user.id}/image` ?
     <nav className="nav ">
       <div className="row nav-bar col-sm-12">
         <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
@@ -104,7 +117,7 @@ export default function Navar() {
             <img
               className="user-ava"
               onClick={onShowMultiTaskClick}
-              src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+              src={user.avatar}
               alt="avatar-user"
             />
             <span className={showMultiTask ? "rectangle " : "rectangle dp-none"}></span>
@@ -117,11 +130,13 @@ export default function Navar() {
         ref={refTasks}
       >
         <div className="block-container">
-          <Link to="/profile" className="dropdown-item"><a><i className="far fa-user-circle"></i></a>Profile</Link>
+          <Link to={`/profile/${user.id}`} className="dropdown-item"><a><i className="far fa-user-circle"></i></a>Profile</Link>
           <div className="dropdown-item"><a><i className="fas fa-cog"></i>Setting</a></div>
           <div className="dropdown-item"><a><i className="far fa-envelope"></i>Inbox</a></div>
           <div className="dropdown-item"><a><i className="far fa-question-circle"></i>Need help?</a></div>
-          <div className="dropdown-item"><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
+          <div className="dropdown-item"
+            onClick={handleLogoutSystem}
+          ><a><i className="fas fa-sign-out-alt"></i>Sign out</a></div>
         </div>
       </div>
       <div

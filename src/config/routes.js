@@ -9,6 +9,7 @@ import MembersGroup from '../view/Groups/components/MembersGroup'
 import HomeGroup from '../view/Groups/components/HomeGroup'
 import EditGroup from '../view/Groups/components/EditGroup'
 import Gallery from '../view/Gallery/Gallery'
+import ImageView from '../view/Shared/ImageView/ImageView'
 
 export const routes = [
   {
@@ -30,9 +31,15 @@ export const routes = [
     isPrivate: true
   },
   {
-    path: '/profile',
+    path: '/profile/:id',
     exact: true,
     component: () => <Profile />,
+    isPrivate: true
+  },
+  {
+    path: '/profile/:id/image',
+    exact: true,
+    component: () => <ImageView />,
     isPrivate: true
   },
   {
