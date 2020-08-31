@@ -84,9 +84,9 @@ export default function Login() {
       >
         Login
       </button>
-        <small className="feedback-login">
-        </small>
-          {error}
+      <small className="feedback-login">
+        {error}
+      </small>
     </div>
   )
 }
