@@ -42,6 +42,7 @@ export const getGroupById = id => {
         type: GET_GROUP_BY_ID_SUCCESS,
         payload
       })
+      
     } else {
       dispatch({
         type: GET_GROUP_BY_ID_FAIL,

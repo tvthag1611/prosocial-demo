@@ -5,7 +5,7 @@ import {
   updatePostService,
   getPostByIdService,
   deletePostService
-} from './services'
+} from '../../packages/services'
 
 export const getAllPosts = (id = 1, type = 'group') => {
   return async dispatch => {

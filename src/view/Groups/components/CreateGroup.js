@@ -48,6 +48,9 @@ export default function CreateGroup() {
               />
               <strong>Vũ Đình Công</strong>
             </div>
+
+
+            
             <div className="import-cover">
               <label
                 type="button"
@@ -63,6 +66,10 @@ export default function CreateGroup() {
                 id="importCover"
               />
             </div>
+
+
+
+
             <input
               type="text"
               className="write-name-group"

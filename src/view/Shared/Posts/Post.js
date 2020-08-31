@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Post.css'
 import {Modal} from 'react-bootstrap'
 import Comment from '../Comments/Comment'
-export default function Post({
-  post
 }) {
+  post
+export default function Post({
 
   const [showMenuPost, setShowMenuPost] = useState(false)
   const [showMemberTick, setShowMemberTick] = useState(false)

@@ -8,6 +8,9 @@ import {Modal} from 'react-bootstrap'
 
 export default function Group() {
 
+  
+  const {user} = useSelector(state => state.homeReducer)
+  const [isAdmin, setIsAdmin] = useState(false);
   let { id } = useParams()
   let { pathname } = useLocation()
 
@@ -17,7 +20,18 @@ export default function Group() {
     dispatch(groupActions.getGroupById(id))
   }, [])
 
+  
   const { group } = useSelector(state => state.groupReducer)
+  useEffect(() => {
+    if(group){
+      
+      group.admins.forEach(item => {
+        if(item.id === user.id)
+          setIsAdmin(true)
+      })
+    }
+  }, [group])
+
 
   const deleteThisGroup = () => {
     dispatch(groupActions.deleteGroup(id))
@@ -92,7 +106,11 @@ export default function Group() {
           <Link className={pathname === `/groups/${id}/members` ? "in-your-group__menu-active" : ""} to={`/groups/${id}/members`}>Members</Link>
           <Link className={pathname === `/groups/${id}/media` ? "in-your-group__menu-active" : ""} to={`/groups/${id}/media`}>Media</Link>
         </div>
+        
         <div className="in-your-group__menu-more">
+
+
+          
           <i className="fa fa-search" aria-hidden="true"></i>
           <i 
             className="fa fa-ellipsis-h"
@@ -100,6 +118,11 @@ export default function Group() {
             onClick={() => setShowMoreGroup(true)}
           >
           </i>
+
+
+
+
+
           <Modal
             show={showMoreGroup}
             onHide={() => setShowMoreGroup(false)}
@@ -107,11 +130,21 @@ export default function Group() {
             size="sm"
           >
             <div className="menu-post-item">
-              <button 
-                className="btn"
-                onClick={deleteThisGroup}
-              >Xoá</button>
-              <Link to={`/groups/${id}/edit`}>Sửa</Link>
+              
+              {
+                isAdmin?
+                <button 
+                  className="btn"
+                  onClick={deleteThisGroup}
+                >Xoá</button>:<div></div>
+              }
+
+              {
+                isAdmin?
+                <Link to={`/groups/${id}/edit`}>Sửa</Link>:<div></div>
+              }
+              
+              
               <button className="btn">Rời nhóm</button>
               <button
                 className="btn"

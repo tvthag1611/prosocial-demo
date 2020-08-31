@@ -27,6 +27,12 @@ export default function Login() {
     })).then(res => handleErrorLogin(res))
   }
 
+  const handleEnter = (e) => {
+    if( e.onKeyDown === 'Enter')
+      loginSystem();
+  }
+
+
   useEffect(() => {
     dispatch(Actions.updatePreloader())
   }, [])
@@ -74,12 +80,13 @@ export default function Login() {
         type="button"
         className="login-system"
         onClick={loginSystem}
+        onKeyDown = {handleEnter}
       >
         Login
       </button>
         <small className="feedback-login">
-          {error}
         </small>
+          {error}
     </div>
   )
 }
