@@ -56,9 +56,6 @@ export const AboutUs = () => {
                 </div>
                 
             </div>
-            <div className="Login" id="logins">
-                <Login />
-            </div>
             
             <div className="footer">
                 <Contact/>
