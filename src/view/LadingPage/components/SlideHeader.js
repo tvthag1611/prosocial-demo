@@ -66,7 +66,6 @@ export default function Header() {
                 <a href='#members' onClick={() => clickBars()}>Members</a>
                 <a href='#sponsors' onClick={() => clickBars()}>Sponsors</a>
                 <a href='#companions' onClick={() => clickBars()}>Contributors</a>
-                <a href='#logins' onClick={() => clickBars()}>Login</a>
             </div>
             
         </div>
