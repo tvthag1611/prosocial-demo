@@ -1,29 +1,31 @@
 import React, {useState, useEffect} from 'react'
 import './../styles/SlideCompanion.css'
+import linh from '../assets/ProPTIT.png'
+
 export default function SlideCompanion() {
     const [mem, setMem] = useState([
         {
-            image: 'https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-9/p960x960/108066501_2683484958589437_1646878072705370710_o.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=KlHvWd2ASwAAX96eKUs&_nc_ht=scontent.fhan5-3.fna&tp=6&oh=bbca8c5d5976a0c03be8e6688232c169&oe=5F6CD2F4',
+            image: linh,
             name: 'Trần Văn Thắng',
             khoa: 'D18'
         },
         {
-            image: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-0/p640x640/59719540_2334793863458558_5390567372505481216_o.jpg?_nc_cat=100&_nc_sid=174925&_nc_ohc=-1oEfZLBeDYAX_V03Uq&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=0e6c357face4eae22baf79e7bc117cca&oe=5EC25AA3',
+            image: linh,
             name: 'Nguyễn Thế Anh',
             khoa: 'D17'
         },
         {
-            image: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/62067740_2383088618605081_8412783516210692096_n.jpg?_nc_cat=111&_nc_sid=174925&_nc_ohc=mIowPTIiS-kAX-mq5QS&_nc_ht=scontent.fhan3-2.fna&oh=5b45af6b3d8a15f61f6c604a4c679f55&oe=5EC48BF5',
+            image: linh,
             name: 'Nguyễn Việt Hương',
             khoa: 'D18'
         },
         {
-            image: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t31.0-8/p960x960/17359037_1985626588331570_566222989922575259_o.jpg?_nc_cat=111&_nc_sid=174925&_nc_ohc=6f5PqvqLyOcAX9YXZfs&_nc_ht=scontent.fhan3-2.fna&_nc_tp=6&oh=16780da9a162d16e215fad4760fa2de7&oe=5EC36320',
+            image: linh,
             name: 'Nguyễn Tiến Hải',
             khoa: 'D17'
         },
         {
-            image: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/70484206_2370760386529881_5713510580581564416_n.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=SocytO7wD5MAX_oIZOR&_nc_ht=scontent.fhan3-2.fna&oh=f8d8b5b63bb4aa269d06290e89b77c7b&oe=5EC38C28',
+            image: linh,
             name: 'Trần Duy Công Khanh',
             khoa: 'D17'
         },
