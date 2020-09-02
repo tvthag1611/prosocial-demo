@@ -8,7 +8,6 @@ import Intro from './components/SlideIntro'
 import Activities from './components/SlideActivities'
 import Mem from './components/SlideMems'
 import Contact from './components/SlideContact'
-import Login from './components/SlideLogin'
 import Footer from './components/SlideFooter'
 
 export const AboutUs = () => {

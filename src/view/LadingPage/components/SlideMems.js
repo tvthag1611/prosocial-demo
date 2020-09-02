@@ -382,8 +382,8 @@ export default function Mem() {
             setIndex([...arr]);
         }
     }
-    const show = mem.map((item) => 
-        <div className="khoa">
+    const show = mem.map((item, Index) => 
+        <div className="khoa" key={Index}>
             <FontAwesomeIcon icon={faAngleLeft} className="control" onClick={() => toLeft(mem.indexOf(item))}/>
             <div className="show-mem">
                 <div className="ava-mem" style={{backgroundImage: "url(" + item[index[mem.indexOf(item)].index1].image + ")"}}></div>
