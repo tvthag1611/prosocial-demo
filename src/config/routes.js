@@ -11,6 +11,7 @@ import EditGroup from '../view/Groups/components/EditGroup'
 import Gallery from '../view/Gallery/Gallery'
 import ImageView from '../view/Shared/ImageView/ImageView'
 import Login from '../view/Login'
+import AboutUs from '../view/LadingPage'
 
 export const routes = [
   {
@@ -122,11 +123,11 @@ export const routes = [
     isPrivate: true
   },
   {
-    path: '/login',
+    path: '/intro',
     exact: true,
     component: () => {
       return (
-        <Login />
+        <AboutUs />
       )
     },
     isPrivate: true

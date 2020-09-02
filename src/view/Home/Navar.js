@@ -77,7 +77,7 @@ export default function Navar() {
   })
   let { pathname } = useLocation()
   return (
-    pathname !== `/groups/create` && pathname !== `/profile/${user.id}/image` ?
+    pathname !== `/groups/create` && pathname !== `/profile/${user.id}/image` && pathname !== `/intro` ?
     <nav className="nav ">
       <div className="row nav-bar col-sm-12">
         <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
