@@ -9,7 +9,7 @@ export default function Contact() {
             <FontAwesomeIcon icon={faMapMarkerAlt}/> 
             <p style={{display: "inline"}}> Km 10 Nguyễn Trãi, Hà Đông, Hà Nội</p> <br/>   
             <FontAwesomeIcon icon={faEnvelope}/>
-            <a href="mailto:clblaptrinhptit@gmail.com"> clblaptrinhptit@gmail.com</a>.<br></br>
+            <a href="mailto:clblaptrinhptit@gmail.com"> clblaptrinhptit@gmail.com</a><br></br>
             <FontAwesomeIcon icon = {faPhoneAlt}/>
             <p style={{display:'inline'}}> 098 517 82 98</p> <br/>
             <FontAwesomeIcon icon={faFacebookF}/>

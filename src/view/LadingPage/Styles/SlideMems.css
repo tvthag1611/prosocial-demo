@@ -1,13 +1,10 @@
 .members {
     display: flex;
     margin: auto;
-    justify-content: space-between;
     width: 90%;
+    justify-content: space-between;
     z-index: 2;
-    /* background-color: teal; */
-    /* background-position-x: 70%; */
-    /* background: linear-gradient(90deg, #FFC0CB 50%, #00FFFF 50%); */
-    /* color: #34939B */
+
     margin-top: 2%;
     padding-bottom: 2%;
 }

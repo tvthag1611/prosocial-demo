@@ -4,7 +4,6 @@
 }
 
 .headers {
-    /* background: #2a4d69 ; */
     width: 100%;
     display: flex;
     position: fixed;
@@ -70,7 +69,8 @@
 
 
 body{
-    margin:0 auto;
+    /* margin:0 auto; */
+    width: 100%;
     background: rgb(245, 244, 253);
 }
 
@@ -79,13 +79,23 @@ body{
         display: flex;
         align-self: center;
         padding-right: 0.5em;
-        color: rgb(211, 206, 250);
+        color: rgb(255, 255, 255);
     }
     .headers .bars:hover {
         display: flex;
         align-self: center;
         color: white;
         cursor: pointer;
+    }
+    .headers .menu a {
+        align-self: center;
+        display: block;
+        width: auto;
+        height: auto;
+        margin-bottom: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .headers .menu {
         display: none;

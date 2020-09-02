@@ -13,7 +13,7 @@ import Footer from './components/SlideFooter'
 
 export const AboutUs = () => {
     return (
-        <div className="row" id="row">
+        <div className="Row" id="row">
             <div className="header">
                 <Header/>
             </div>
@@ -56,7 +56,7 @@ export const AboutUs = () => {
                 </div>
                 
             </div>
-            <div className="login" id="logins">
+            <div className="Login" id="logins">
                 <Login />
             </div>
             

@@ -39,7 +39,11 @@ export default function Header() {
             }
             else
             {
-                setClasses('headers');
+                if(isShow) setClasses('headers');
+                else if(window.innerWidth <= 768)
+                {
+                    setClasses('headers animate__animated animate__slideInDown sticky');
+                } else setClasses('headers sticky ');
             }
         }
     })
@@ -54,7 +58,7 @@ export default function Header() {
                 <a href='#row' className="home">
                     <img className="imageLogo" src={logo} alt="logo" />
                 </a>
-                <FontAwesomeIcon icon={faBars} size="2x" className="bars" onClick={()=>clickBars()}/>
+                <FontAwesomeIcon icon={faBars} size="3x" className="bars" onClick={()=>clickBars()}/>
             </div>
             <div className= {respon}>
                 <a href='#intros' onClick={() => clickBars()}>Introduce</a>
