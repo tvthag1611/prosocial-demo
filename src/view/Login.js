@@ -1,40 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import './Login.css'
-import { useSelector, useDispatch } from 'react-redux'
-import * as Actions from '../redux/action-creators/home'
+import React, { useState, useEffect } from "react";
+import "./Login.css";
+import { useSelector, useDispatch } from "react-redux";
+import * as Actions from "../redux/action-creators/home";
+import { useHistory, Redirect } from "react-router-dom";
 
 export default function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState(false)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(false);
 
-  const { isLogged } = useSelector((state) => state.homeReducer)
+  const history = useHistory();
 
-  const dispatch = useDispatch()
+  const { isLogged } = useSelector((state) => state.homeReducer);
+
+  const dispatch = useDispatch();
 
   const handleErrorLogin = (res) => {
     if (res === 401) {
-      setError('Tài khoản hoặc mật khẩu sai!')
+      setError("Tài khoản hoặc mật khẩu sai!");
     }
-  }
+  };
 
   const loginSystem = () => {
     dispatch(
       Actions.updateLogin({
         username,
         password,
-      }),
-    ).then((res) => handleErrorLogin(res))
-  }
+      })
+    ).then((res) => handleErrorLogin(res));
+  };
 
   const handleEnter = (e) => {
-    if (e.onKeyDown === 'Enter') loginSystem()
-  }
+    if (e.onKeyDown === "Enter") loginSystem();
+  };
 
   useEffect(() => {
-    dispatch(Actions.updatePreloader())
-  }, [])
+    dispatch(Actions.updatePreloader());
+  }, []);
+
+  if (isLogged) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <div className="login">
@@ -44,7 +51,7 @@ export default function Login() {
         <input
           type="text"
           className={
-            username !== '' ? 'form-control' : 'form-control is-invalid'
+            username !== "" ? "form-control" : "form-control is-invalid"
           }
           placeholder="Username"
           value={username}
@@ -55,9 +62,9 @@ export default function Login() {
       </div>
       <div className="form-group show-pass-form">
         <input
-          type={showPassword ? 'text' : 'password'}
+          type={showPassword ? "text" : "password"}
           className={
-            password !== '' ? 'form-control' : 'form-control is-invalid'
+            password !== "" ? "form-control" : "form-control is-invalid"
           }
           placeholder="Password"
           value={password}
@@ -89,5 +96,5 @@ export default function Login() {
       </button>
       <small className="feedback-login">{error}</small>
     </div>
-  )
+  );
 }

@@ -1,55 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react'
-import './Styles/Navar.css'
-import useClickOutside from './Function/useClickOutside'
-import { Link, useLocation, NavLink, useParams } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import * as Actions from '../../redux/action-creators/home'
+import React, { useState, useEffect, useRef } from "react";
+import "./Styles/Navar.css";
+import useClickOutside from "./Function/useClickOutside";
+import {
+  Link,
+  useLocation,
+  NavLink,
+  useParams,
+  useHistory,
+} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import * as Actions from "../../redux/action-creators/home";
 export default function Navar() {
-  let params = useParams()
-  console.log(params)
+  let params = useParams();
+  console.log(params);
 
-  const dispatch = useDispatch()
+  const history = useHistory();
 
-  const { user } = useSelector((state) => state.homeReducer)
+  const dispatch = useDispatch();
 
-  let [searchBoxContent, setSetSearchBoxContent] = useState(null)
-  let [showMultiTask, setShowMultiTask] = useState(false)
-  let [showNotification, setShowNotification] = useState(false)
+  const { user } = useSelector((state) => state.homeReducer);
+
+  let [searchBoxContent, setSetSearchBoxContent] = useState(null);
+  let [showMultiTask, setShowMultiTask] = useState(false);
+  let [showNotification, setShowNotification] = useState(false);
   const handleClick = (e) => {
-    console.log(searchBoxContent)
-  }
+    console.log(searchBoxContent);
+  };
   const handleChange = (e) => {
-    setSetSearchBoxContent(e.target.value)
-  }
+    setSetSearchBoxContent(e.target.value);
+  };
   const onShowMultiTaskClick = () => {
-    setShowNotification(false)
-    setShowMultiTask(!showMultiTask)
-  }
+    setShowNotification(false);
+    setShowMultiTask(!showMultiTask);
+  };
   const onShowNoticationClick = () => {
-    setShowMultiTask(false)
-    setShowNotification(!showNotification)
-  }
+    setShowMultiTask(false);
+    setShowNotification(!showNotification);
+  };
   const handleLogoutSystem = () => {
-    localStorage.removeItem('userData')
-    dispatch(Actions.logoutUser(false))
-  }
+    localStorage.removeItem("userData");
+    dispatch(Actions.logoutUser(false));
+    history.push("/");
+  };
   var notifications = [
     {
-      author: 'Thế Anh',
-      action: ' Đăng bài viết mới',
-      timeCreated: '11 phút trước',
+      author: "Thế Anh",
+      action: " Đăng bài viết mới",
+      timeCreated: "11 phút trước",
     },
     {
-      author: 'Công Khanh',
-      action: ' Đã trả lời bình luận của bạn',
-      timeCreated: '11 phút trước',
+      author: "Công Khanh",
+      action: " Đã trả lời bình luận của bạn",
+      timeCreated: "11 phút trước",
     },
     {
-      author: 'Tiến Hải',
-      action: ' Đã bày tỏ cảm xúc về bài viết của bạn',
-      timeCreated: '11 phút trước',
+      author: "Tiến Hải",
+      action: " Đã bày tỏ cảm xúc về bài viết của bạn",
+      timeCreated: "11 phút trước",
     },
-  ]
+  ];
   let notificationElm = notifications.map((item, index) => {
     return (
       <div key={index} className="notification-item np">
@@ -61,28 +70,33 @@ export default function Navar() {
           <small>{item.timeCreated}</small>
         </div>
       </div>
-    )
-  })
-  const refTasks = useRef()
-  const refNotis = useRef()
+    );
+  });
+  const refTasks = useRef();
+  const refNotis = useRef();
   useClickOutside(refTasks, () => {
     if (showMultiTask == true) {
-      setShowMultiTask(false)
+      setShowMultiTask(false);
     }
-  })
+  });
   useClickOutside(refNotis, () => {
     if (showNotification == true) {
-      setShowNotification(false)
+      setShowNotification(false);
     }
-  })
-  let { pathname } = useLocation()
+  });
+  let { pathname } = useLocation();
   return pathname !== `/groups/create` &&
     pathname !== `/profile/${user.id}/image` &&
-    pathname !== `/intro` ? (
+    pathname !== `/login` &&
+    pathname !== `/` ? (
     <nav className="nav ">
       <div className="row nav-bar col-sm-12">
         <div className="nav-currency col-sm-12 col-md-6 col-lg-8 col-xl-8">
-          <img src="/img/ProPTIT-logo.png" className="nav-bar-brand" />
+          <img
+            src="/img/ProPTIT-logo.png"
+            className="nav-bar-brand"
+            onClick={() => history.push("/")}
+          />
           <form>
             <input
               type="text"
@@ -98,7 +112,7 @@ export default function Navar() {
         </div>
 
         <div className="nav-currency col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <NavLink exact={true} activeClassName="nav-active" to="/">
+          <NavLink activeClassName="nav-active" to="/home">
             <i className="fas fa-home nav-bar-icon"></i>
           </NavLink>
           <NavLink activeClassName="nav-active" to="/groups">
@@ -115,7 +129,7 @@ export default function Navar() {
             onClick={onShowNoticationClick}
           >
             <span
-              className={showNotification ? 'rectangle ' : 'rectangle dp-none'}
+              className={showNotification ? "rectangle " : "rectangle dp-none"}
             ></span>
             <i className="fas fa-circle noti-item"></i>
           </i>
@@ -130,14 +144,14 @@ export default function Navar() {
               alt="avatar-user"
             />
             <span
-              className={showMultiTask ? 'rectangle ' : 'rectangle dp-none'}
+              className={showMultiTask ? "rectangle " : "rectangle dp-none"}
             ></span>
           </i>
         </div>
       </div>
       <div
         className={
-          showMultiTask ? 'dropdown-profile ' : 'dropdown-profile dp-none'
+          showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"
         }
         ref={refTasks}
       >
@@ -172,7 +186,7 @@ export default function Navar() {
       </div>
       <div
         className={
-          showNotification ? 'block-profile ' : 'block-profile dp-none'
+          showNotification ? "block-profile " : "block-profile dp-none"
         }
         ref={refNotis}
       >
@@ -181,5 +195,5 @@ export default function Navar() {
     </nav>
   ) : (
     <div></div>
-  )
+  );
 }

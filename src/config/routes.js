@@ -1,57 +1,57 @@
-import React from 'react'
-import Home from './../view/Home/Home'
-import Group from '../view/Groups/Group'
-import Profile from '../view/Profile/Profile'
-import NewFeedGroup from './../view/Groups/NewFeedGroup'
-import CreateGroup from './../view/Groups/components/CreateGroup'
-import AboutGroup from './../view/Groups/components/AboutGroup'
-import MembersGroup from '../view/Groups/components/MembersGroup'
-import HomeGroup from '../view/Groups/components/HomeGroup'
-import EditGroup from '../view/Groups/components/EditGroup'
-import Gallery from '../view/Gallery/Gallery'
-import ImageView from '../view/Shared/ImageView/ImageView'
-import Login from '../view/Login'
-import AboutUs from '../view/LadingPage'
+import React from "react";
+import Home from "./../view/Home/Home";
+import Group from "../view/Groups/Group";
+import Profile from "../view/Profile/Profile";
+import NewFeedGroup from "./../view/Groups/NewFeedGroup";
+import CreateGroup from "./../view/Groups/components/CreateGroup";
+import AboutGroup from "./../view/Groups/components/AboutGroup";
+import MembersGroup from "../view/Groups/components/MembersGroup";
+import HomeGroup from "../view/Groups/components/HomeGroup";
+import EditGroup from "../view/Groups/components/EditGroup";
+import Gallery from "../view/Gallery/Gallery";
+import ImageView from "../view/Shared/ImageView/ImageView";
+import AboutUs from "../view/LadingPage";
+import Login from "../view/Login";
 
 export const routes = [
   {
-    path: '/',
+    path: "/home",
     exact: true,
     component: () => {
       return (
         <div className="content row">
           <Home />
         </div>
-      )
+      );
     },
     isPrivate: true,
   },
   {
-    path: '/groups',
+    path: "/groups",
     exact: true,
     component: () => <NewFeedGroup />,
     isPrivate: true,
   },
   {
-    path: '/profile/:id',
+    path: "/profile/:id",
     exact: true,
     component: () => <Profile />,
     isPrivate: true,
   },
   {
-    path: '/profile/:id/image',
+    path: "/profile/:id/image",
     exact: true,
     component: () => <ImageView />,
     isPrivate: true,
   },
   {
-    path: '/groups/create',
+    path: "/groups/create",
     exact: false,
     component: () => <CreateGroup />,
     isPrivate: true,
   },
   {
-    path: '/groups/:id',
+    path: "/groups/:id",
     exact: true,
     component: () => {
       return (
@@ -59,12 +59,12 @@ export const routes = [
           <Group />
           <HomeGroup />
         </div>
-      )
+      );
     },
     isPrivate: true,
   },
   {
-    path: '/groups/:id/about',
+    path: "/groups/:id/about",
     exact: false,
     component: () => {
       return (
@@ -72,12 +72,12 @@ export const routes = [
           <Group />
           <AboutGroup />
         </div>
-      )
+      );
     },
     isPrivate: true,
   },
   {
-    path: '/groups/:id/media',
+    path: "/groups/:id/media",
     exact: false,
     component: () => {
       return (
@@ -85,12 +85,12 @@ export const routes = [
           <Group />
           <strong>Media</strong>
         </div>
-      )
+      );
     },
     isPrivate: true,
   },
   {
-    path: '/groups/:id/members',
+    path: "/groups/:id/members",
     exact: false,
     component: () => {
       return (
@@ -98,33 +98,41 @@ export const routes = [
           <Group />
           <MembersGroup />
         </div>
-      )
+      );
     },
     isPrivate: true,
   },
   {
-    path: '/groups/:id/edit',
+    path: "/groups/:id/edit",
     exact: false,
     component: () => {
-      return <EditGroup />
+      return <EditGroup />;
     },
     isPrivate: true,
   },
   {
-    path: '/gallery',
+    path: "/gallery",
     exact: true,
     component: () => {
-      return <Gallery />
+      return <Gallery />;
     },
     isPrivate: true,
   },
   {
-    path: '/intro',
+    path: "/",
     exact: true,
     component: () => {
-      return <AboutUs />
+      return <AboutUs />;
     },
     isPrivate: true,
   },
-]
-export default routes
+  {
+    path: "/login",
+    exact: true,
+    component: () => {
+      return <Login />;
+    },
+    isPrivate: true,
+  },
+];
+export default routes;
