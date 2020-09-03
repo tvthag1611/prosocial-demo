@@ -4,60 +4,60 @@ import {
   addPostService,
   updatePostService,
   getPostByIdService,
-  deletePostService
+  deletePostService,
 } from '../../packages/services'
 
 export const getAllPosts = (id = 1, type = 'group') => {
-  return async dispatch => {
+  return async (dispatch) => {
     // eslint-disable-next-line new-cap
     const payload = await GetAllPostsService(type, id)
     dispatch({
       type: Actions.GET_ALL_POSTS,
-      payload
+      payload,
     })
     return payload
   }
 }
 
-export const getPostById = id => {
-  return async dispatch => {
+export const getPostById = (id) => {
+  return async (dispatch) => {
     const payload = await getPostByIdService(id)
     dispatch({
       type: Actions.GET_POST_BY_ID,
-      payload
+      payload,
     })
     return payload
   }
 }
 
 export const createPost = (post, images) => {
-  return async dispatch => {
+  return async (dispatch) => {
     const response = await addPostService(post, images)
     if (response) {
       dispatch({
         type: Actions.CREATE_POST,
-        payload: response
+        payload: response,
       })
     }
   }
 }
 
 export const updatePost = (post, images) => {
-  return async dispatch => {
+  return async (dispatch) => {
     await updatePostService(post, images)
     dispatch({
       type: Actions.UPDATE_POST,
-      payload: post
+      payload: post,
     })
   }
 }
 
-export const deletePost = id => {
-  return async dispatch => {
+export const deletePost = (id) => {
+  return async (dispatch) => {
     const response = deletePostService(id)
     dispatch({
       type: Actions.DELETE_POST,
-      payload: id
+      payload: id,
     })
   }
 }

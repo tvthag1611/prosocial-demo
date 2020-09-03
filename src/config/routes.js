@@ -24,31 +24,31 @@ export const routes = [
         </div>
       )
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups',
     exact: true,
     component: () => <NewFeedGroup />,
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/profile/:id',
     exact: true,
     component: () => <Profile />,
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/profile/:id/image',
     exact: true,
     component: () => <ImageView />,
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/create',
     exact: false,
     component: () => <CreateGroup />,
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/:id',
@@ -61,7 +61,7 @@ export const routes = [
         </div>
       )
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/:id/about',
@@ -74,7 +74,7 @@ export const routes = [
         </div>
       )
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/:id/media',
@@ -87,7 +87,7 @@ export const routes = [
         </div>
       )
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/:id/members',
@@ -100,37 +100,31 @@ export const routes = [
         </div>
       )
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/groups/:id/edit',
     exact: false,
     component: () => {
-      return (
-        <EditGroup />
-      )
+      return <EditGroup />
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/gallery',
     exact: true,
     component: () => {
-      return (
-        <Gallery />
-      )
+      return <Gallery />
     },
-    isPrivate: true
+    isPrivate: true,
   },
   {
     path: '/intro',
     exact: true,
     component: () => {
-      return (
-        <AboutUs />
-      )
+      return <AboutUs />
     },
-    isPrivate: true
+    isPrivate: true,
   },
 ]
 export default routes

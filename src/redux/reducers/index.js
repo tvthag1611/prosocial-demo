@@ -9,5 +9,5 @@ export default combineReducers({
   homeReducer,
   postReducer,
   groupReducer,
-  reactionReducer
+  reactionReducer,
 })

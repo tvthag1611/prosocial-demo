@@ -7,24 +7,24 @@ export const addReactionService = (postId, type = 1) => {
     .post(`${environments.BASE_URL}reactions/`, {
       // eslint-disable-next-line camelcase
       post_id: postId,
-      type
+      type,
     })
-    .then(response => {
+    .then((response) => {
       console.log(response)
       return response.data.reaction_id
     })
-    .catch(error => {
+    .catch((error) => {
       return null
     })
 }
 
-export const deleteReactionService = reactionId => {
+export const deleteReactionService = (reactionId) => {
   return axios
     .delete(`${environments.BASE_URL}reactions/${reactionId}/`)
-    .then(response => {
+    .then((response) => {
       return response.data
     })
-    .catch(error => {
+    .catch((error) => {
       return null
     })
 }

@@ -8,7 +8,7 @@ export const useState = (initialValue = {}) => {
     let newState = null
     if (typeof data === 'object') {
       newState = update(state, {
-        $merge: data
+        $merge: data,
       })
     } else {
       newState = data

@@ -9,10 +9,9 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState(false)
 
-  const { isLogged } = useSelector(state => state.homeReducer)
-  
+  const { isLogged } = useSelector((state) => state.homeReducer)
 
-  const dispatch  = useDispatch()
+  const dispatch = useDispatch()
 
   const handleErrorLogin = (res) => {
     if (res === 401) {
@@ -21,17 +20,17 @@ export default function Login() {
   }
 
   const loginSystem = () => {
-    dispatch(Actions.updateLogin({
-      username,
-      password
-    })).then(res => handleErrorLogin(res))
+    dispatch(
+      Actions.updateLogin({
+        username,
+        password,
+      }),
+    ).then((res) => handleErrorLogin(res))
   }
 
   const handleEnter = (e) => {
-    if( e.onKeyDown === 'Enter')
-      loginSystem();
+    if (e.onKeyDown === 'Enter') loginSystem()
   }
-
 
   useEffect(() => {
     dispatch(Actions.updatePreloader())
@@ -44,49 +43,51 @@ export default function Login() {
       <div className="form-group">
         <input
           type="text"
-          className={username !== '' ? 'form-control' : 'form-control is-invalid'}
+          className={
+            username !== '' ? 'form-control' : 'form-control is-invalid'
+          }
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          />
-        <div className="invalid-feedback">
-          Vui lòng điền Username
-        </div>
+        />
+        <div className="invalid-feedback">Vui lòng điền Username</div>
       </div>
       <div className="form-group show-pass-form">
         <input
           type={showPassword ? 'text' : 'password'}
-          className={password !== '' ? 'form-control' : 'form-control is-invalid'}
+          className={
+            password !== '' ? 'form-control' : 'form-control is-invalid'
+          }
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          />
-        <div className="invalid-feedback">
-          Vui lòng điền mật khẩu
-        </div>
-        {showPassword ?
-          <i className="fas fa-eye show-pass" aria-hidden="true"
+        />
+        <div className="invalid-feedback">Vui lòng điền mật khẩu</div>
+        {showPassword ? (
+          <i
+            className="fas fa-eye show-pass"
+            aria-hidden="true"
             onClick={() => setShowPassword(false)}
           ></i>
-          :
-          <i className="fa fa-eye-slash show-pass" aria-hidden="true"
+        ) : (
+          <i
+            className="fa fa-eye-slash show-pass"
+            aria-hidden="true"
             onClick={() => setShowPassword(true)}
           ></i>
-        }        
+        )}
       </div>
       <button
         type="button"
         className="login-system"
         onClick={loginSystem}
-        onKeyDown = {handleEnter}
+        onKeyDown={handleEnter}
       >
         Login
       </button>
-      <small className="feedback-login">
-        {error}
-      </small>
+      <small className="feedback-login">{error}</small>
     </div>
   )
 }

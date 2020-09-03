@@ -4,7 +4,7 @@ import * as Actions from '../action-types'
 const STATE_INIT = {
   reactionId: null,
   message: null,
-  errorMessage: null
+  errorMessage: null,
 }
 
 export default (state = STATE_INIT, { type, payload }) => {

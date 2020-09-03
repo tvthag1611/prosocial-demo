@@ -8,13 +8,14 @@ export default function InGroup() {
       id: 1,
       type: 0,
       content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image: ''
+      image: '',
     },
     {
       id: 2,
       type: 0,
       content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image: 'https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg'
+      image:
+        'https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg',
     },
     {
       id: 3,
@@ -23,30 +24,26 @@ export default function InGroup() {
       polls: [
         {
           id: 1,
-          option: 'Dạ không'
+          option: 'Dạ không',
         },
         {
           id: 2,
-          option: 'E là của anh'
+          option: 'E là của anh',
         },
         {
           id: 3,
-          option: 'Ghê quá'
+          option: 'Ghê quá',
         },
-      ]
+      ],
     },
   ]
   return (
     <div className="in-group">
       <strong className="recent-post">RECENT ACTIVITY</strong>
       <div className="post-in-group">
-        {
-          posts.map(post => {
-            return (
-              <Post post={post} />
-            )
-          })
-        }
+        {posts.map((post) => {
+          return <Post post={post} />
+        })}
       </div>
     </div>
   )

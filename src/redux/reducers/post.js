@@ -5,7 +5,7 @@ const STATE_INIT = {
   posts: [],
   post: null,
   comments: null,
-  reactions: null
+  reactions: null,
 }
 
 export default (state = STATE_INIT, { type, payload }) => {
@@ -17,7 +17,7 @@ export default (state = STATE_INIT, { type, payload }) => {
         ...state,
         post: payload.post,
         comments: payload?.commentsInfo,
-        reactions: payload?.reactionsInfo
+        reactions: payload?.reactionsInfo,
       }
     case Actions.GET_POSTS_BY_GROUP:
       return { ...state, posts: payload }
@@ -29,7 +29,10 @@ export default (state = STATE_INIT, { type, payload }) => {
       posts[postIndex] = payload
       return { ...state, posts }
     case Actions.DELETE_POST:
-      return { ...state, posts: state.posts.filter(({ id }) => id !== payload) }
+      return {
+        ...state,
+        posts: state.posts.filter(({ id }) => id !== payload),
+      }
     default:
       return state
   }

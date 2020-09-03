@@ -2,7 +2,7 @@ import {
   getAllGroupsService,
   getGroupByIdService,
   updateGroupService,
-  deleteGroupService
+  deleteGroupService,
 } from './../../packages/services'
 
 import {
@@ -13,75 +13,74 @@ import {
   UPDATE_GROUP_SUCCESS,
   UPDATE_GROUP_FAIL,
   DELETE_GROUP_SUCCESS,
-  DELETE_GROUP_FAIL
+  DELETE_GROUP_FAIL,
 } from '../action-types'
 
 export const getAllGroups = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const payload = await getAllGroupsService()
     if (payload) {
       dispatch({
         type: GET_ALL_GROUPS_SUCCESS,
-        payload
+        payload,
       })
     } else {
       dispatch({
         type: GET_ALL_GROUPS_FAIL,
-        payload: null
+        payload: null,
       })
     }
     return payload
   }
 }
 
-export const getGroupById = id => {
-  return async dispatch => {
+export const getGroupById = (id) => {
+  return async (dispatch) => {
     const payload = await getGroupByIdService(id)
     if (payload) {
       dispatch({
         type: GET_GROUP_BY_ID_SUCCESS,
-        payload
+        payload,
       })
-      
     } else {
       dispatch({
         type: GET_GROUP_BY_ID_FAIL,
-        payload: `Can't get the information about this group`
+        payload: `Can't get the information about this group`,
       })
     }
     return payload
   }
 }
 
-export const updateGroup = id => {
-  return async dispatch => {
+export const updateGroup = (id) => {
+  return async (dispatch) => {
     const payload = await updateGroupService(id)
     if (payload) {
       dispatch({
         type: UPDATE_GROUP_SUCCESS,
-        payload
+        payload,
       })
     } else {
       dispatch({
         type: UPDATE_GROUP_FAIL,
-        payload: `Can't get the information about this group`
+        payload: `Can't get the information about this group`,
       })
     }
   }
 }
 
-export const deleteGroup = id => {
-  return async dispatch => {
+export const deleteGroup = (id) => {
+  return async (dispatch) => {
     const payload = await deleteGroupService(id)
     if (payload) {
       dispatch({
         type: DELETE_GROUP_SUCCESS,
-        payload
+        payload,
       })
     } else {
       dispatch({
         type: DELETE_GROUP_FAIL,
-        payload: `Can't get the information about this group`
+        payload: `Can't get the information about this group`,
       })
     }
   }
