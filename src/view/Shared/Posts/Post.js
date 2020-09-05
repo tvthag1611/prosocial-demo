@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Post.css'
 import { Modal } from 'react-bootstrap'
 import Comment from '../Comments/Comment'
+import SimpleImageSlider from 'react-simple-image-slider'
 
 export default function Post({ post }) {
   const [showMenuPost, setShowMenuPost] = useState(false)
@@ -30,14 +31,53 @@ export default function Post({ post }) {
     setComment(event.target.value)
   }
 
-  const [maxHeight, setMaxHeight] = useState(400)
+  // view many image
+  const images = [
+    {
+      url:
+        'https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg',
+      width: 387,
+      height: 580,
+    },
+    // {
+    //   url: 'https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg',
+    //   width: 611,
+    //   height: 711,
+    // },
+    // {
+    //   url: 'https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg',
+    //   width: 564,
+    //   height: 564,
+    // },
+  ]
 
+  const [widthImageView, setWidthImageView] = useState(400)
+  const [widthImageViewModal, setWidthImageViewModal] = useState(400)
+  const [heightImageView, setHeightImageView] = useState(999999)
+  const [heightImageViewModal, setHeightImageViewModal] = useState(999999)
+  const [maxHeight, setMaxHeight] = useState(504 - 197)
   useEffect(() => {
-    let image = document.getElementsByClassName('content-img')[0]
-    let header = document.getElementsByClassName('header-modal')[0]
-    header && console.log(header.offsetHeight)
-    image && setMaxHeight(image.offsetHeight - 127 - header.offsetHeight)
+    let width = document.getElementsByClassName('text-and-img')[0]
+    let widthModal = document.getElementsByClassName('content-in-post')[0]
+    widthModal && setWidthImageViewModal(widthModal.offsetWidth)
+    setWidthImageView(width.offsetWidth)
+    images.forEach((image) => {
+      if ((image.height * width.offsetWidth) / image.width < heightImageView) {
+        setHeightImageView((image.height * width.offsetWidth) / image.width)
+      }
+      if (
+        widthModal &&
+        (image.height * widthModal.offsetWidth) / image.width <
+          heightImageViewModal
+      ) {
+        setHeightImageViewModal(
+          (image.height * widthModal.offsetWidth) / image.width,
+        )
+      }
+    })
+    setMaxHeight(heightImageViewModal - 197)
   })
+  // ----------
 
   return (
     <div className="post">
@@ -80,10 +120,11 @@ export default function Post({ post }) {
           <div className="text-and-img">
             <p className="content-of-post">{post.content}</p>
             {post.image && (
-              <img
-                className="img-post"
-                src={post.image}
-                alt="Không load được ảnh"
+              // in post out
+              <SimpleImageSlider
+                width={widthImageView}
+                height={heightImageView}
+                images={images}
               />
             )}
           </div>
@@ -206,10 +247,11 @@ export default function Post({ post }) {
           <div className="in-post">
             {post.image && (
               <div className="content-in-post">
-                <img
-                  className="content-img"
-                  src={post.image}
-                  alt="Không load được ảnh"
+                {/* in modal */}
+                <SimpleImageSlider
+                  width={widthImageViewModal}
+                  height={heightImageViewModal}
+                  images={images}
                 />
               </div>
             )}
