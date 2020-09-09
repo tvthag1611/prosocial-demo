@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/SlideIntro.css'
+import '../Styles/SlideIntro.css'
 import anhIntro from '../assets/clb.JPG'
 import d17 from '../assets/introD17.jpg'
 import d18 from '../assets/introD18.jpg'

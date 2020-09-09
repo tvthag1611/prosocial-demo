@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/AboutUs.css'
+import './Styles/AboutUs.css'
 import SlideCompanion from './components/SlideCompanion'
 import SlideSponsor from './components/SlideSponsor'
 import clb from './assets/clb.JPG'

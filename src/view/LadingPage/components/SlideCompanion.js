@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './../styles/SlideCompanion.css'
+import './../Styles/SlideCompanion.css'
 import linh from '../assets/ProPTIT.png'
 
 export default function SlideCompanion() {

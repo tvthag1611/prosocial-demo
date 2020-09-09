@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './../styles/SlideCompanion.css'
-import './../styles/SlideSponsor.css'
+import './../Styles/SlideCompanion.css'
+import './../Styles/SlideSponsor.css'
 import gold from './../assets/gold.png'
 import diamond from './../assets/diamond.png'
 import silver from './../assets/silver.png'

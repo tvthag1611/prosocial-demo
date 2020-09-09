@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/SlideActivities.css'
+import '../Styles/SlideActivities.css'
 import s2bBirthday from '../assets/sinhNhats2b.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'

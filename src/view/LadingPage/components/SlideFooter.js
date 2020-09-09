@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/SlideFooter.css'
+import '../Styles/SlideFooter.css'
 
 export default function Footer() {
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './../styles/SlideHeader.css'
+import './../Styles/SlideHeader.css'
 import logo from './../assets/ProPTIT.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
