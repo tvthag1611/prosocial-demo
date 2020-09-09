@@ -1,0 +1,133 @@
+.headers .imageLogo {
+    height: 100px;
+    transform: scale(0.9);
+}
+
+.headers {
+    width: 100%;
+    background:#1B294D;
+    display: flex;
+    z-index: 30;
+}
+.sticky{
+    position: fixed;
+    opacity: 95%;
+}
+
+.bars {
+    display: none;
+}
+
+.headers .logoclb {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding-left: 10%;
+}
+
+
+.headers .menu {
+    color: white;
+    width:70%;
+    align-self: center;
+    display: flex; 
+    /* flex-direction: row-reverse; */
+    justify-content: space-between;
+}
+.headers .menu a {
+    color: rgb(255, 255, 255);
+    align-self: center;
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    /* align-self: center; */
+    justify-content: center;
+}
+
+.headers a{
+    cursor: pointer;
+}
+
+.headers .menu a:hover {
+    /* height: 100%; */
+    color: wheat;
+}
+
+.headers .home {
+    /* opacity: 0; */
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+}
+
+
+body{
+    /* margin:0 auto; */
+    width: 100%;
+    background: rgb(245, 244, 253);
+}
+
+@media (max-width: 768px) {
+   
+    .headers .imageLogo {
+        height: 50px;
+        transform: scale(0.9);
+    }
+    .headers .home {
+        /* opacity: 0; */
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+    }
+    .headers .bars {
+        display: flex;
+        align-self: center;
+        padding-right: 0.5em;
+        color: rgb(255, 255, 255);
+    }
+    .headers .bars:hover {
+        display: flex;
+        align-self: center;
+        color: white;
+        cursor: pointer;
+    }
+    .headers .menu a {
+        align-self: center;
+        display: block;
+        width: auto;
+        height: auto;
+        margin-bottom: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .headers .menu {
+        display: none;
+    }
+    .headers .show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .headers .logoclb {
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        padding: 0;
+        width: 90%;
+    }
+    .headers {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+

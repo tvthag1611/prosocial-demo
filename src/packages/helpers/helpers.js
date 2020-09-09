@@ -1,24 +1,24 @@
-export const convertCommentType = data => {
+export const convertCommentType = (data) => {
   return {
     ...data,
     authorAvatar: data?.assigned_user_avatar,
     authorId: data?.assigned_user_id,
     authorName: data?.assigned_user_display_name,
-    postId: data?.assigned_post
+    postId: data?.assigned_post,
   }
 }
 
-export const convertToServerCommentType = data => {
+export const convertToServerCommentType = (data) => {
   return {
     ...data,
     assigned_user_avatar: data?.authorAvatar,
     assigned_user_id: data?.authorId,
     assigned_user_display_name: data?.authorName,
-    assigned_post: data?.postId
+    assigned_post: data?.postId,
   }
 }
 
-export const convertPostType = data => {
+export const convertPostType = (data) => {
   return {
     ...data,
     authorId: data?.assigned_user_id,
@@ -31,20 +31,20 @@ export const convertPostType = data => {
     reactionId: data?.reaction_id,
     commentsInfo: data?.comments_info,
     pollsInfo: data?.poll_info,
-    reactionsInfo: data?.reactions_info
+    reactionsInfo: data?.reactions_info,
   }
 }
 
-export const convertToServerPostType = data => {
+export const convertToServerPostType = (data) => {
   const { authorId, groupId } = data
   return {
     ...data,
     assigned_user_id: authorId,
-    assigned_group_id: groupId
+    assigned_group_id: groupId,
   }
 }
 
-export const convertToUserType = data => {
+export const convertToUserType = (data) => {
   return {
     ...data,
     displayName: data?.display_name,
@@ -52,11 +52,11 @@ export const convertToUserType = data => {
     className: data?.class_name,
     phoneNumber: data?.phone_number,
     regDate: data?.reg_date,
-    participatingGroup: data?.participating_group
+    participatingGroup: data?.participating_group,
   }
 }
 
-export const converToServerUserType = data => {
+export const converToServerUserType = (data) => {
   return {
     ...data,
     display_name: data?.displayName,
@@ -64,11 +64,11 @@ export const converToServerUserType = data => {
     class_name: data?.className,
     phone_number: data?.phoneNumber,
     reg_date: data?.regDate,
-    participating_group: data?.participatingGroup
+    participating_group: data?.participatingGroup,
   }
 }
 
-export const convertToGroupType = data => {
+export const convertToGroupType = (data) => {
   const { members, admins } = data
   return {
     ...data,
@@ -77,15 +77,15 @@ export const convertToGroupType = data => {
       displayName: members?.display_name,
       phoneNumber: members?.phone_number,
       dateOfBirth: members?.date_of_birth,
-      participatingGroup: members?.participating_group
+      participatingGroup: members?.participating_group,
     },
     admins: {
       ...admins,
       displayName: admins?.display_name,
       phoneNumber: admins?.phone_number,
       dateOfBirth: admins?.date_of_birth,
-      participatingGroup: admins?.participating_group
-    }
+      participatingGroup: admins?.participating_group,
+    },
   }
 }
 
@@ -94,14 +94,14 @@ export const convertToGroupType = data => {
 
 // }
 
-export const convertToCommentArray = data => {
-  return data?.map(comment => convertCommentType(comment))
+export const convertToCommentArray = (data) => {
+  return data?.map((comment) => convertCommentType(comment))
 }
 
-export const convertToPostArray = data => {
-  return data?.map(post => convertPostType(post))
+export const convertToPostArray = (data) => {
+  return data?.map((post) => convertPostType(post))
 }
 
-export const convertToGroupArray = data => {
-  return data.map(group => convertToGroupType(group))
+export const convertToGroupArray = (data) => {
+  return data.map((group) => convertToGroupType(group))
 }

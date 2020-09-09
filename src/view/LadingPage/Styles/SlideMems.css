@@ -1,0 +1,31 @@
+.members {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    justify-content: space-between;
+    z-index: 2;
+
+    margin-top: 2%;
+    padding-bottom: 2%;
+}
+
+.members .name-mem, .members .khoa-mem {
+    color: #34939B;
+}
+
+
+
+.khoa {
+    display: flex;
+    justify-content: space-between;
+    /* flex-grow: 1; */
+    width: 30%;
+    align-items: center;
+    min-height: 150px;
+}
+
+.members .show-mem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

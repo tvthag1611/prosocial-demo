@@ -9,26 +9,27 @@ import * as groupActions from '../../../redux/action-creators/group'
 export default function HomeGroup() {
   let { id } = useParams()
 
-  const dispatch =  useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(groupActions.getGroupById(id))
   }, [])
 
-  const { group } = useSelector(state => state.groupReducer)
+  const { group } = useSelector((state) => state.groupReducer)
 
   const posts = [
     {
       id: 1,
       type: 0,
       content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image: ''
+      image: '',
     },
     {
       id: 2,
       type: 0,
       content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image: 'https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg'
+      image:
+        'https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg',
     },
     {
       id: 3,
@@ -37,17 +38,17 @@ export default function HomeGroup() {
       polls: [
         {
           id: 1,
-          option: 'Dạ không'
+          option: 'Dạ không',
         },
         {
           id: 2,
-          option: 'E là của anh'
+          option: 'E là của anh',
         },
         {
           id: 3,
-          option: 'Ghê quá'
+          option: 'Ghê quá',
         },
-      ]
+      ],
     },
   ]
 
@@ -55,19 +56,13 @@ export default function HomeGroup() {
     <div className="home-group">
       <div className="home-group__post">
         <CreatePost />
-        {
-          posts.map(post => {
-            return (
-              <Post post={post} />
-            )
-          })
-        }
+        {posts.map((post) => {
+          return <Post post={post} />
+        })}
       </div>
       <div className="home-group__about">
         <h4>About</h4>
-        <p>
-          {group && group.description} 
-        </p>
+        <p>{group && group.description}</p>
       </div>
     </div>
   )

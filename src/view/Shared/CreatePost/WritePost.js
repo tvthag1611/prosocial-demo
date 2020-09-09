@@ -1,9 +1,5 @@
 import React from 'react'
 
 export default function WritePost() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>
 }

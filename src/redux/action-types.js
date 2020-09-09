@@ -1,6 +1,8 @@
 //user
 export const IS_LOGGED = 'IS_LOGGED'
 export const USER_INFO = 'USER_INFO'
+export const GET_ALL_USERS_SUCCESS = 'GET_ALL_USERS_SUCCESS'
+export const GET_ALL_USERS_FAIL = 'GET_ALL_USERS_FAIL'
 
 //posts
 export const GET_ALL_POSTS = 'GET_ALL_POSTS'

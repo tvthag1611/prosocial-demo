@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
 export default function Profile() {
+<<<<<<< HEAD
   const { user } = useSelector(state => state.homeReducer);
   const [showMenu, setShowMenu] = useState();
 
@@ -12,16 +13,28 @@ export default function Profile() {
     setShowMenu(menu);
     console.log(showMenu)
   }
+=======
+  const { user } = useSelector((state) => state.homeReducer)
+>>>>>>> c2c29ebdef062c0072b38ddac31ceff3373f3776
 
   return (
     <div className="profile-page">
       <div className="header">
         <div className="cover-box">
+<<<<<<< HEAD
           <img className="cover-photo"
             src={user.cover} />
         </div>
         <div className="avatar-box">
           <Link to={`/profile/${user.id}/image`}><img className="avatar" src={user.avatar} /></Link>
+=======
+          <img className="cover-photo" src={user.cover} />
+        </div>
+        <div className="avatar-box">
+          <Link to={`/profile/${user.id}/image`}>
+            <img src={user.avatar} />
+          </Link>
+>>>>>>> c2c29ebdef062c0072b38ddac31ceff3373f3776
           <h3 className="name"> {user.displayName} </h3>
         </div>
       </div>

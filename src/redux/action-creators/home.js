@@ -3,7 +3,8 @@ import * as Actions from '../action-types'
 import {
   SignInService,
   fetchUserDataService,
-  updateAccessTokenService
+  updateAccessTokenService,
+  getAllUsersService,
 } from '../../packages/services'
 
 // export const
@@ -24,13 +25,13 @@ export const updatePreloader = () => {
         isLogged = true
         dispatch({
           type: Actions.USER_INFO,
-          payload: userInfo
+          payload: userInfo,
         })
       }
     }
     dispatch({
       type: Actions.IS_LOGGED,
-      payload: isLogged
+      payload: isLogged,
     })
   }
 }
@@ -40,16 +41,15 @@ export const updateLogin = (payload) => {
     // eslint-disable-next-line new-cap
     const authCredential = await SignInService(
       payload.username,
-      payload.password
+      payload.password,
     )
     if (authCredential !== 401) {
       const userInfo = await fetchUserDataService()
       const isLogged = !!userInfo
       dispatch({
         type: Actions.IS_LOGGED,
-        payload: isLogged
+        payload: isLogged,
       })
-      
     } else {
       return 401
     }
@@ -60,7 +60,7 @@ export const updateLoginStatus = (payload) => {
   return (dispatch) =>
     dispatch({
       type: Actions.IS_LOGGED,
-      payload
+      payload,
     })
 }
 
@@ -68,7 +68,7 @@ export const updateUserInfo = (payload) => {
   return (dispatch) =>
     dispatch({
       type: Actions.USER_INFO,
-      payload
+      payload,
     })
 }
 
@@ -76,7 +76,25 @@ export const logoutUser = (payload) => {
   return (dispatch) => {
     dispatch({
       type: Actions.IS_LOGGED,
-      payload: false
+      payload: false,
     })
+  }
+}
+
+export const getAllUsers = () => {
+  return async (dispatch) => {
+    const payload = await getAllUsersService()
+    if (payload) {
+      dispatch({
+        type: Actions.GET_ALL_USERS_SUCCESS,
+        payload,
+      })
+    } else {
+      dispatch({
+        type: Actions.GET_ALL_USERS_FAIL,
+        payload: null,
+      })
+    }
+    return payload
   }
 }

@@ -1,3 +1,3 @@
 module.exports = {
-  BASE_URL: 'http://apis.aiforce.xyz/'
+  BASE_URL: 'http://apis.aiforce.xyz/',
 }

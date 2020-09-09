@@ -1,44 +1,83 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Post.css'
-import {Modal} from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import Comment from '../Comments/Comment'
+import SimpleImageSlider from 'react-simple-image-slider'
 
-export default function Post({post}) {
-
+export default function Post({ post }) {
   const [showMenuPost, setShowMenuPost] = useState(false)
   const [showMemberTick, setShowMemberTick] = useState(false)
   const [showPost, setShowPost] = useState(false)
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState('')
   const handleHiddenMemberTick = () => {
-    setShowMemberTick(false);
+    setShowMemberTick(false)
   }
   const handleShowMemberTick = () => {
-    setShowMemberTick(true);
+    setShowMemberTick(true)
   }
   const handleHiddenPost = () => {
-    setShowPost(false);
+    setShowPost(false)
   }
   const handleShowPost = () => {
-    setShowPost(true);
+    setShowPost(true)
   }
   const handleShowMenuPost = () => {
-    setShowMenuPost(true);
+    setShowMenuPost(true)
   }
   const handleHiddenMenuPost = () => {
-    setShowMenuPost(false);
+    setShowMenuPost(false)
   }
   const handleChange = (event) => {
-    setComment(event.target.value);
+    setComment(event.target.value)
   }
 
-  const [maxHeight, setMaxHeight] = useState(400)
+  // view many image
+  const images = [
+    {
+      url:
+        'https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg',
+      width: 387,
+      height: 580,
+    },
+    // {
+    //   url: 'https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg',
+    //   width: 611,
+    //   height: 711,
+    // },
+    // {
+    //   url: 'https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg',
+    //   width: 564,
+    //   height: 564,
+    // },
+  ]
 
+  const [widthImageView, setWidthImageView] = useState(400)
+  const [widthImageViewModal, setWidthImageViewModal] = useState(400)
+  const [heightImageView, setHeightImageView] = useState(999999)
+  const [heightImageViewModal, setHeightImageViewModal] = useState(999999)
+  const [maxHeight, setMaxHeight] = useState(504 - 197)
   useEffect(() => {
-    let image = document.getElementsByClassName('content-img')[0]
-    let header = document.getElementsByClassName('header-modal')[0]
-    header && console.log(header.offsetHeight)
-    image && setMaxHeight(image.offsetHeight - 127 - header.offsetHeight)
+    let width = document.getElementsByClassName('text-and-img')[0]
+    let widthModal = document.getElementsByClassName('content-in-post')[0]
+    widthModal && setWidthImageViewModal(widthModal.offsetWidth)
+    setWidthImageView(width.offsetWidth)
+    images.forEach((image) => {
+      if ((image.height * width.offsetWidth) / image.width < heightImageView) {
+        setHeightImageView((image.height * width.offsetWidth) / image.width)
+      }
+      if (
+        widthModal &&
+        (image.height * widthModal.offsetWidth) / image.width <
+          heightImageViewModal
+      ) {
+        setHeightImageViewModal(
+          (image.height * widthModal.offsetWidth) / image.width,
+        )
+      }
+    })
+    setMaxHeight(heightImageViewModal - 197)
   })
+  // ----------
 
   return (
     <div className="post">
@@ -50,7 +89,8 @@ export default function Post({post}) {
             alt="avatar-user"
           />
           <div className="name-avatar">
-            <strong>{'Trần Văn Thắng '}
+            <strong>
+              {'Trần Văn Thắng '}
               <i className="fa fa-caret-right" aria-hidden="true"></i>
               {' New Feeds'}
             </strong>
@@ -58,9 +98,7 @@ export default function Post({post}) {
           </div>
         </div>
         <div className="menu-post">
-          <i className="fas fa-ellipsis-h"
-              onClick={handleShowMenuPost}
-          ></i>
+          <i className="fas fa-ellipsis-h" onClick={handleShowMenuPost}></i>
           <Modal
             show={showMenuPost}
             onHide={handleHiddenMenuPost}
@@ -70,75 +108,76 @@ export default function Post({post}) {
             <div className="menu-post-item">
               <button className="btn">Xoá bài viết</button>
               <button className="btn">Sửa bài viết</button>
-              <button
-                className="btn"
-                onClick={handleHiddenMenuPost}
-              >Cancel</button>
+              <button className="btn" onClick={handleHiddenMenuPost}>
+                Cancel
+              </button>
             </div>
           </Modal>
         </div>
       </div>
       <div className="post-content">
-        {
-          post.type === 0 ?
-            <div className="text-and-img">
-              <p className="content-of-post">
-                {post.content}
-              </p>
-              {
-                post.image &&
-                <img
-                  className="img-post"
-                  src={post.image}
-                  alt="Không load được ảnh"
-                />
-              }
-            </div> :
+        {post.type === 0 ? (
+          <div className="text-and-img">
+            <p className="content-of-post">{post.content}</p>
+            {post.image && (
+              // in post out
+              <SimpleImageSlider
+                width={widthImageView}
+                height={heightImageView}
+                images={images}
+              />
+            )}
+          </div>
+        ) : (
           <div className="text-and-poll">
             <p>{post.question}</p>
-            {
-              post.polls.map(poll => {
-                return (
-                  <div className="form-group form-check" key={poll.id}>
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                      <label className="form-check-label" htmlFor="exampleCheck1">{poll.option}</label>
-                    <div
-                      className="all-member-tick"
-                      onClick={handleShowMemberTick}
-                    >
-                      <img
-                        className="member-tick"
-                        src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
-                        alt="avatar-user"
-                      />
-                      <img
-                        className="member-tick"
-                        src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
-                        alt="avatar-user"
-                      />
-                      <img
-                        className="member-tick"
-                        src="https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg"
-                        alt="avatar-user"
-                      />
-                      <img
-                        className="member-tick"
-                        src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
-                        alt="avatar-user"
-                      />
-                      <img
-                        className="member-tick"
-                        src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
-                        alt="avatar-user"
-                      />
-                      <div className="member-tick-more">+34</div>
-                    </div>
+            {post.polls.map((poll) => {
+              return (
+                <div className="form-group form-check" key={poll.id}>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label className="form-check-label" htmlFor="exampleCheck1">
+                    {poll.option}
+                  </label>
+                  <div
+                    className="all-member-tick"
+                    onClick={handleShowMemberTick}
+                  >
+                    <img
+                      className="member-tick"
+                      src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                      alt="avatar-user"
+                    />
+                    <img
+                      className="member-tick"
+                      src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg"
+                      alt="avatar-user"
+                    />
+                    <img
+                      className="member-tick"
+                      src="https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg"
+                      alt="avatar-user"
+                    />
+                    <img
+                      className="member-tick"
+                      src="https://2.bp.blogspot.com/-fjf5yU5r1Jk/WE1VD1BBKpI/AAAAAAAAjgI/bXwGoigAPJYvScMPtzJtzbOJfoGQO2C_ACEw/s1600/15349541_533868826819201_3350340522319981193_n.jpg"
+                      alt="avatar-user"
+                    />
+                    <img
+                      className="member-tick"
+                      src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-2000-de-thuong.jpg"
+                      alt="avatar-user"
+                    />
+                    <div className="member-tick-more">+34</div>
                   </div>
-                )
-              })
-            }
+                </div>
+              )
+            })}
           </div>
-        }
+        )}
         <Modal
           show={showMemberTick}
           onHide={handleHiddenMemberTick}
@@ -174,114 +213,125 @@ export default function Post({post}) {
               <div className="ava-member-tick"></div>
               <strong>Trần Văn Thắng</strong>
             </div>
-          </div> 
+          </div>
         </Modal>
       </div>
       <div className="post-reaction">
         <div className="like-cmt-share-post">
           {/* <i className="far fa-heart"></i> */}
           <i className="fas fa-heart like-post"></i>
-          <label htmlFor={"write-comment-out"+post.id}>
+          <label htmlFor={'write-comment-out' + post.id}>
             <i className="far fa-comment"></i>
           </label>
           <i className="far fa-share-square"></i>
         </div>
         <strong className="count-like">10,723 likes</strong>
-        <p><strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời luôn!</p>
-        <p><strong>Nguyễn Hoài Đức</strong> Ui vợ t đây rồi </p>
+        <p>
+          <strong>Vũ Thành Công</strong> Ui sao tôi chịu nổi chứ, xinh quá trời
+          luôn!
+        </p>
+        <p>
+          <strong>Nguyễn Hoài Đức</strong> Ui vợ t đây rồi{' '}
+        </p>
         <p className="reply">View 2 replies</p>
-        <strong
-          className="view-all"
-          onClick={handleShowPost}
-        >View all comments</strong>
+        <strong className="view-all" onClick={handleShowPost}>
+          View all comments
+        </strong>
         {/* view post */}
         <Modal
-            show={showPost}
-            onHide={handleHiddenPost}
-            centered
-            size={post.image && 'lg'}
-          >
-            <div className="in-post">
-              {
-                post.image &&
-                <div className="content-in-post">
+          show={showPost}
+          onHide={handleHiddenPost}
+          centered
+          size={post.image && 'lg'}
+        >
+          <div className="in-post">
+            {post.image && (
+              <div className="content-in-post">
+                {/* in modal */}
+                <SimpleImageSlider
+                  width={widthImageViewModal}
+                  height={heightImageViewModal}
+                  images={images}
+                />
+              </div>
+            )}
+            <div className="comment-in-post">
+              <div className="post-header header-modal">
+                <div className="avatar-user">
                   <img
-                    className="content-img"
-                    src={post.image}
-                    alt="Không load được ảnh"
+                    className="user-ava"
+                    src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
+                    alt="avatar-user"
                   />
-                </div>
-              }
-              <div className="comment-in-post">
-                <div className="post-header header-modal">
-                    <div className="avatar-user">
-                      <img
-                        className="user-ava"
-                        src="https://sohanews.sohacdn.com/2020/2/26/photo-1-158270587240769675748.jpg"
-                        alt="avatar-user"
-                      />
-                      <div className="name-avatar">
-                      <strong>{'Trần Văn Thắng '}
-                        <i className="fa fa-caret-right" aria-hidden="true"></i>
-                        {' New Feeds'}
-                      </strong>
-                        <small>Vừa ngay</small>
-                      </div>
-                    </div>
-                    <div className="menu-post">
-                      <i className="fas fa-ellipsis-h"
-                          onClick={handleShowMenuPost}
-                      ></i>
-                      <Modal
-                        show={showMenuPost}
-                        onHide={handleHiddenMenuPost}
-                        centered
-                        size="sm"
-                      >
-                        <div className="menu-post-item">
-                          <button className="btn">Xoá bài viết</button>
-                          <button className="btn">Sửa bài viết</button>
-                          <button
-                            className="btn"
-                            onClick={handleHiddenMenuPost}
-                          >Cancel</button>
-                        </div> 
-                      </Modal>
-                    </div>
+                  <div className="name-avatar">
+                    <strong>
+                      {'Trần Văn Thắng '}
+                      <i className="fa fa-caret-right" aria-hidden="true"></i>
+                      {' New Feeds'}
+                    </strong>
+                    <small>Vừa ngay</small>
                   </div>
-                <Comment maxHeight={maxHeight} post={post} setShowMemberTick={setShowMemberTick}/>
-                <div className="react-in-post">
-                <div className="like-cmt-share-post">
-                    {/* <i className="far fa-heart"></i> */}
-                    <i className="fas fa-heart like-post"></i>
-                    <label htmlFor={"write-comment-out"+post.id}>
-                      <i className="far fa-comment"></i>
-                    </label>
-                    <i className="far fa-share-square"></i>
-                  </div>
-                  <strong className="count-like">10,723 likes</strong>
                 </div>
-                <div className="you-comment">
-                  <input
-                    value={comment}
-                    type="text"
-                    className="form-control"
-                    placeholder="Add a comment..."
-                    onChange={handleChange}
-                    id={"write-comment-out"+post.id}
-                  />
-                  <button
-                    onClick={() => {
-                      console.log(comment)
-                      setComment('');
-                    }}
-                    disabled={comment === '' ? true : false}
-                  >Post</button>
+                <div className="menu-post">
+                  <i
+                    className="fas fa-ellipsis-h"
+                    onClick={handleShowMenuPost}
+                  ></i>
+                  <Modal
+                    show={showMenuPost}
+                    onHide={handleHiddenMenuPost}
+                    centered
+                    size="sm"
+                  >
+                    <div className="menu-post-item">
+                      <button className="btn">Xoá bài viết</button>
+                      <button className="btn">Sửa bài viết</button>
+                      <button className="btn" onClick={handleHiddenMenuPost}>
+                        Cancel
+                      </button>
+                    </div>
+                  </Modal>
                 </div>
               </div>
+              <Comment
+                maxHeight={maxHeight}
+                post={post}
+                setShowMemberTick={setShowMemberTick}
+              />
+              <div className="react-in-post">
+                <div className="like-cmt-share-post">
+                  {/* <i className="far fa-heart"></i> */}
+                  <i className="fas fa-heart like-post"></i>
+                  <label htmlFor={'write-comment-out' + post.id}>
+                    <i className="far fa-comment"></i>
+                  </label>
+                  <i className="far fa-share-square"></i>
+                </div>
+                <strong className="count-like">10,723 likes</strong>
+              </div>
+              <div className="you-comment">
+                <input
+                  value={comment}
+                  type="text"
+                  className="form-control"
+                  placeholder="Add a comment..."
+                  onChange={handleChange}
+                  id={'write-comment-out' + post.id}
+                />
+                <button
+                  onClick={() => {
+                    console.log(comment)
+                    setComment('')
+                  }}
+                  disabled={comment === '' ? true : false}
+                >
+                  Post
+                </button>
+              </div>
             </div>
-          </Modal>
-          {/* ------ */}
+          </div>
+        </Modal>
+        {/* ------ */}
       </div>
       <div className="you-comment">
         <input
@@ -290,15 +340,17 @@ export default function Post({post}) {
           className="form-control"
           placeholder="Add a comment..."
           onChange={handleChange}
-          id={"write-comment-out"+post.id}
+          id={'write-comment-out' + post.id}
         />
         <button
           onClick={() => {
             console.log(comment)
-            setComment('');
+            setComment('')
           }}
           disabled={comment === '' ? true : false}
-        >Post</button>
+        >
+          Post
+        </button>
       </div>
     </div>
   )

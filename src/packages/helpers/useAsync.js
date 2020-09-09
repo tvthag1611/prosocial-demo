@@ -10,8 +10,8 @@ export const useAsync = (asyncFunction, immediate = true) => {
     setValue(null)
     setError(null)
     return asyncFunction()
-      .then(response => setValue(response))
-      .catch(error => setError(error))
+      .then((response) => setValue(response))
+      .catch((error) => setError(error))
       .finally(() => setPending(false))
   }, [asyncFunction])
 

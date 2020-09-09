@@ -6,7 +6,7 @@ const STATE_INIT = {
   message: null,
   errorMessage: null,
   groupId: null,
-  group: null
+  group: null,
 }
 
 export default (state = STATE_INIT, { type, payload }) => {

@@ -26,12 +26,12 @@ export const updateAccessTokenService = () => {
   const refreshToken = getRefreshToken()
   return axios
     .post(`${environments.BASE_URL}auth/jwt/refresh/`, {
-      refresh: refreshToken
+      refresh: refreshToken,
     })
     .then((response) => {
       const authToken = {
         refresh: refreshToken,
-        access: response.data.access
+        access: response.data.access,
       }
       axios.defaults.headers.common[
         'Authorization'
@@ -49,8 +49,8 @@ export const fetchUserDataService = () => {
   return axios
     .get(`${environments.BASE_URL}auth/users/me/`, {
       headers: {
-        Authorization: `Bearer ${accessKey}`
-      }
+        Authorization: `Bearer ${accessKey}`,
+      },
     })
     .then((response) => {
       const user = response.data
@@ -61,6 +61,20 @@ export const fetchUserDataService = () => {
       if (error.response) {
         return error.response.status
       }
+      return null
+    })
+}
+
+export const getAllUsersService = () => {
+  return axios
+    .get(`${environments.BASE_URL}accounts/`)
+    .then((response) => {
+      return response.data
+    })
+    .catch((error) => {
+      // if (error.response) {
+      //   return error.response.status
+      // }
       return null
     })
 }

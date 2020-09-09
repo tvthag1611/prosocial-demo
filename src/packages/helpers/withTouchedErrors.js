@@ -4,9 +4,9 @@ const touchedErrors = (touched = {}, errors = {}, fields = []) => {
   return fields.reduce(
     (acc, cur) =>
       Object.assign(acc, {
-        [cur]: touched && touched[cur] && errors ? errors[cur] : ''
+        [cur]: touched && touched[cur] && errors ? errors[cur] : '',
       }),
-    {}
+    {},
   )
 }
 

@@ -8,10 +8,10 @@ export const GetAllPostsService = (type, id) => {
   const method = type === 'group' ? 'byGroup' : 'byUser'
   return axios
     .get(`${environments.BASE_URL}posts/?method=${method}&id=${id}`)
-    .then(response => {
+    .then((response) => {
       return convertToPostArray(response.data)
     })
-    .catch(error => {
+    .catch((error) => {
       if (error.response) {
         return error.response.status
       }
@@ -19,19 +19,19 @@ export const GetAllPostsService = (type, id) => {
     })
 }
 
-export const getPostByIdService = postId => {
+export const getPostByIdService = (postId) => {
   return axios
     .get(`${environments.BASE_URL}posts/${postId}/`)
-    .then(response => {
+    .then((response) => {
       const { post, reactions_info, comments_info } = response.data
 
       return {
         post: { ...convertPostType(post), isLiked: post.is_liked },
         reactionsInfo: reactions_info,
-        commentsInfo: comments_info
+        commentsInfo: comments_info,
       }
     })
-    .catch(error => {
+    .catch((error) => {
       if (error.response) {
         return error.response.status
       }
@@ -42,7 +42,7 @@ export const getPostByIdService = postId => {
 export const addPostService = (post, images) => {
   const data = new FormData()
   images &&
-    images.map(image => {
+    images.map((image) => {
       data.append('files', image)
     })
   data.append('group_id', post.groupId)
@@ -50,12 +50,12 @@ export const addPostService = (post, images) => {
   data.append('content', post.content)
   return axios
     .post(`${environments.BASE_URL}posts/`, data, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: { 'Content-Type': 'multipart/form-data' },
     })
-    .then(res => {
+    .then((res) => {
       return convertPostType(res.data)
     })
-    .catch(err => {
+    .catch((err) => {
       return null
     })
 }
@@ -63,7 +63,7 @@ export const addPostService = (post, images) => {
 export const updatePostService = (post, images) => {
   const data = new FormData()
   images &&
-    images.map(image => {
+    images.map((image) => {
       data.append('files', image)
     })
   data.append('group_id', post.groupId)
@@ -71,23 +71,23 @@ export const updatePostService = (post, images) => {
   data.append('content', post.content)
   return axios
     .patch(`${environments.BASE_URL}posts/${post.id}/`, data, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: { 'Content-Type': 'multipart/form-data' },
     })
-    .then(res => {
+    .then((res) => {
       return 'success'
     })
-    .catch(err => {
+    .catch((err) => {
       return null
     })
 }
 
-export const deletePostService = postId => {
+export const deletePostService = (postId) => {
   return axios
     .delete(`${environments.BASE_URL}posts/${postId}/`)
-    .then(res => {
+    .then((res) => {
       return 'success'
     })
-    .catch(err => {
+    .catch((err) => {
       return null
     })
 }

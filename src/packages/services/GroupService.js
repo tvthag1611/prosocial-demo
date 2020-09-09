@@ -7,10 +7,10 @@ import { convertToGroupArray, convertToGroupType } from '../helpers'
 export const getAllGroupsService = () => {
   return axios
     .get(`${environments.BASE_URL}groups/`)
-    .then(response => {
+    .then((response) => {
       return response.data
     })
-    .catch(error => {
+    .catch((error) => {
       // if (error.response) {
       //   return error.response.status
       // }
@@ -18,52 +18,52 @@ export const getAllGroupsService = () => {
     })
 }
 
-export const getGroupByIdService = id => {
+export const getGroupByIdService = (id) => {
   return axios
     .get(`${environments.BASE_URL}groups/${id}/`)
-    .then(response => {
+    .then((response) => {
       return response.data
     })
-    .catch(error => {
+    .catch((error) => {
       return null
     })
 }
 
-export const addGroupService = group => {
+export const addGroupService = (group) => {
   const data = ''
   return axios
     .post(`${environments.BASE_URL}groups/`, data)
-    .then(res => {
+    .then((res) => {
       console.log(res.data)
       return 'success'
     })
-    .catch(err => {
+    .catch((err) => {
       return 'error'
     })
 }
 
-export const updateGroupService = id => {
+export const updateGroupService = (id) => {
   const data = ''
   return axios
     .patch(`${environments.BASE_URL}groups/${id}/`, data, {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: { 'Content-Type': 'multipart/form-data' },
     })
-    .then(res => {
+    .then((res) => {
       console.log(res.data)
       return res.data
     })
-    .catch(err => {
+    .catch((err) => {
       return null
     })
 }
 
-export const deleteGroupService = id => {
+export const deleteGroupService = (id) => {
   return axios
     .delete(`${environments.BASE_URL}groups/${id}/`)
-    .then(res => {
+    .then((res) => {
       return res.data
     })
-    .catch(err => {
+    .catch((err) => {
       return null
     })
 }

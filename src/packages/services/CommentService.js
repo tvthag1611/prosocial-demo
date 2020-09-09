@@ -19,7 +19,7 @@ export const addCommentService = (postId, content) => {
     .post(`${environments.BASE_URL}comments/`, {
       // eslint-disable-next-line camelcase
       post_id: postId,
-      content
+      content,
     })
     .then((response) => {
       return 'success'
