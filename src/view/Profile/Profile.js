@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Profile.css'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+import { RenderInformation } from './Information/Information'
 
 export default function Profile() {
   const { user } = useSelector((state) => state.homeReducer)
@@ -68,28 +69,19 @@ export default function Profile() {
             </li>
           </ul>
         </div>
-      </div>
 
-      <div className="display-body">
-        <div className={showMenu === 1 ? 'right-status' : 'body-profile'}>
-          {showMenu === 1 ? (
-            <div>Chỗ này là Post cá nhân</div>
-          ) : showMenu === 2 ? (
-            // <RenderInformation {...state}
-            //   onInfoChange={handleInfoChange}
-            // />
-            <div>day la dong thoi gian</div>
-          ) : (
-            <div>
-              day la nhiem vu
-              {/* <CreateMission
-                  addNewMission={addNewMission}
-                  showAddMission={showAddMission}
-                  closeAddMission={closeAddMission}
-                />
-                <RenderMissions /> */}
-            </div>
-          )}
+        <div className="display-body">
+          <div className={showMenu === 1 ? 'right-status' : 'body-profile'}>
+            {showMenu === 1 ? (
+              <div>Chỗ này là Post cá nhân</div>
+            ) : showMenu === 2 ? (
+              <div>
+                <RenderInformation {...user} />
+              </div>
+            ) : (
+              <div>day la nhiem vu</div>
+            )}
+          </div>
         </div>
       </div>
     </div>
