@@ -1,64 +1,64 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Styles/Navar.css";
-import useClickOutside from "./Function/useClickOutside";
+import React, { useState, useEffect, useRef } from 'react'
+import './Styles/Navar.css'
+import useClickOutside from './Function/useClickOutside'
 import {
   Link,
   useLocation,
   NavLink,
   useParams,
   useHistory,
-} from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import * as Actions from "../../redux/action-creators/home";
+} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import * as Actions from '../../redux/action-creators/home'
 export default function Navar() {
-  let params = useParams();
-  console.log(params);
+  let params = useParams()
+  console.log(params)
 
-  const history = useHistory();
+  const history = useHistory()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const { user } = useSelector((state) => state.homeReducer);
+  const { user } = useSelector((state) => state.homeReducer)
 
-  let [searchBoxContent, setSetSearchBoxContent] = useState(null);
-  let [showMultiTask, setShowMultiTask] = useState(false);
-  let [showNotification, setShowNotification] = useState(false);
+  let [searchBoxContent, setSetSearchBoxContent] = useState(null)
+  let [showMultiTask, setShowMultiTask] = useState(false)
+  let [showNotification, setShowNotification] = useState(false)
   const handleClick = (e) => {
-    console.log(searchBoxContent);
-  };
+    console.log(searchBoxContent)
+  }
   const handleChange = (e) => {
-    setSetSearchBoxContent(e.target.value);
-  };
+    setSetSearchBoxContent(e.target.value)
+  }
   const onShowMultiTaskClick = () => {
-    setShowNotification(false);
-    setShowMultiTask(!showMultiTask);
-  };
+    setShowNotification(false)
+    setShowMultiTask(!showMultiTask)
+  }
   const onShowNoticationClick = () => {
-    setShowMultiTask(false);
-    setShowNotification(!showNotification);
-  };
+    setShowMultiTask(false)
+    setShowNotification(!showNotification)
+  }
   const handleLogoutSystem = () => {
-    localStorage.removeItem("userData");
-    dispatch(Actions.logoutUser(false));
-    history.push("/");
-  };
+    localStorage.removeItem('userData')
+    dispatch(Actions.logoutUser(false))
+    history.push('/')
+  }
   var notifications = [
     {
-      author: "Thế Anh",
-      action: " Đăng bài viết mới",
-      timeCreated: "11 phút trước",
+      author: 'Thế Anh',
+      action: ' Đăng bài viết mới',
+      timeCreated: '11 phút trước',
     },
     {
-      author: "Công Khanh",
-      action: " Đã trả lời bình luận của bạn",
-      timeCreated: "11 phút trước",
+      author: 'Công Khanh',
+      action: ' Đã trả lời bình luận của bạn',
+      timeCreated: '11 phút trước',
     },
     {
-      author: "Tiến Hải",
-      action: " Đã bày tỏ cảm xúc về bài viết của bạn",
-      timeCreated: "11 phút trước",
+      author: 'Tiến Hải',
+      action: ' Đã bày tỏ cảm xúc về bài viết của bạn',
+      timeCreated: '11 phút trước',
     },
-  ];
+  ]
   let notificationElm = notifications.map((item, index) => {
     return (
       <div key={index} className="notification-item np">
@@ -70,21 +70,21 @@ export default function Navar() {
           <small>{item.timeCreated}</small>
         </div>
       </div>
-    );
-  });
-  const refTasks = useRef();
-  const refNotis = useRef();
+    )
+  })
+  const refTasks = useRef()
+  const refNotis = useRef()
   useClickOutside(refTasks, () => {
     if (showMultiTask == true) {
-      setShowMultiTask(false);
+      setShowMultiTask(false)
     }
-  });
+  })
   useClickOutside(refNotis, () => {
     if (showNotification == true) {
-      setShowNotification(false);
+      setShowNotification(false)
     }
-  });
-  let { pathname } = useLocation();
+  })
+  let { pathname } = useLocation()
   return pathname !== `/groups/create` &&
     pathname !== `/profile/${user.id}/image` &&
     pathname !== `/login` &&
@@ -95,7 +95,7 @@ export default function Navar() {
           <img
             src="/img/ProPTIT-logo.png"
             className="nav-bar-brand"
-            onClick={() => history.push("/")}
+            onClick={() => history.push('/')}
           />
           <form>
             <input
@@ -129,7 +129,7 @@ export default function Navar() {
             onClick={onShowNoticationClick}
           >
             <span
-              className={showNotification ? "rectangle " : "rectangle dp-none"}
+              className={showNotification ? 'rectangle ' : 'rectangle dp-none'}
             ></span>
             <i className="fas fa-circle noti-item"></i>
           </i>
@@ -144,19 +144,22 @@ export default function Navar() {
               alt="avatar-user"
             />
             <span
-              className={showMultiTask ? "rectangle " : "rectangle dp-none"}
+              className={showMultiTask ? 'rectangle ' : 'rectangle dp-none'}
             ></span>
           </i>
         </div>
       </div>
       <div
         className={
-          showMultiTask ? "dropdown-profile " : "dropdown-profile dp-none"
+          showMultiTask ? 'dropdown-profile ' : 'dropdown-profile dp-none'
         }
         ref={refTasks}
       >
         <div className="block-container">
-          <Link to={`/profile/${user.id}`} className="dropdown-item">
+          <Link
+            to={`/profile/${user.id}`}
+            className="dropdown-item block-container_link"
+          >
             <a>
               <i className="far fa-user-circle"></i>
             </a>
@@ -186,7 +189,7 @@ export default function Navar() {
       </div>
       <div
         className={
-          showNotification ? "block-profile " : "block-profile dp-none"
+          showNotification ? 'block-profile ' : 'block-profile dp-none'
         }
         ref={refNotis}
       >
@@ -195,5 +198,5 @@ export default function Navar() {
     </nav>
   ) : (
     <div></div>
-  );
+  )
 }

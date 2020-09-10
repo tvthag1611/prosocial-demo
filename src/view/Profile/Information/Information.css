@@ -1,18 +1,47 @@
-.info-box{
-    font-size: 25px;
+.information {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
-.icon{
-    font-size: 25px !important;
-    margin-right: 10px;
-    color: #4782d0 !important;
-    width: 2rem;
+.info-box{
+    width: 40%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px 20px 20px 0px;
+    padding: 10px;
 }
-.fa-ellipsis-v{
+
+.intro-user-admin__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.intro-user-admin__header i{
     cursor: pointer;
     font-size: 20px;
-    color: #4782d0 !important;
+    color: black !important;
 }
+
+
+.info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-item i {
+    margin-right: 5px;
+    font-size: 20px;
+    color: #4782d0;
+    width: 2rem;
+}
+
 .modal-header{
     background-color: #4782d0;
     color: white;
@@ -31,4 +60,29 @@
 }
 .input-box{
     margin-bottom: 20px;
+}
+
+.like-of-user {
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.like-of-user h3 {
+    margin: 10px 0px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .information{
+        flex-direction: column;
+    }
+    .info-box {
+        width: 100%;
+    }
+
+    .like-of-user {
+        width: 100%;
+    }
 }

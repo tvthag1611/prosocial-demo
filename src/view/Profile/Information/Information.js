@@ -185,84 +185,82 @@ export const RenderInformation = ({
   }
 
   return (
-    <React.Fragment>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-2"></div>
-          <div className="col-md-8 info-box">
-            <div>
-              <h3 className="title-body">
-                Giới thiệu
-                <i
-                  className="fa fa-ellipsis-v"
-                  onClick={() => {
-                    openEditInfo()
-                  }}
-                />
-              </h3>
-              <ShowEditInfo />
-            </div>
-            {displayName ? (
-              <div>
-                <i className="icon fa fa-user"></i>
-                {displayName}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {username ? (
-              <div>
-                <i className="icon fa fa-id-badge"></i> {username}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {dateOfBirth ? (
-              <div>
-                <i className="icon fa fa-birthday-cake"></i> {dateOfBirth}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {gender ? (
-              <div>
-                <i className="icon fa fa-venus-mars"></i> {gender}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {grade ? (
-              <div>
-                <i className="icon fa fa-graduation-cap"></i> {grade}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {address ? (
-              <div>
-                <i className="icon fa fa-location-arrow"></i> {address}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {phoneNumber ? (
-              <div>
-                <i className="icon fa fa-phone"></i> {phoneNumber}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {email ? (
-              <div>
-                <i className="icon fa fa-envelope"></i> {email}{' '}
-              </div>
-            ) : (
-              <div></div>
-            )}
+    <div className="information">
+      <div className="info-box">
+        <div className="intro-user-admin">
+          <div className="intro-user-admin__header">
+            <h3 className="title-info-user">Giới thiệu</h3>
+            <i
+              className="fa fa-ellipsis-h"
+              onClick={() => {
+                openEditInfo()
+              }}
+            />
           </div>
-          <div className="col-md-2"></div>
+          <ShowEditInfo />
         </div>
+        {displayName ? (
+          <div className="info-item">
+            <i className="fa fa-user"></i>
+            {displayName}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {username ? (
+          <div className="info-item">
+            <i className="fa fa-id-badge"></i> {username}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {dateOfBirth ? (
+          <div className="info-item">
+            <i className="fa fa-birthday-cake"></i> {dateOfBirth}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {gender ? (
+          <div className="info-item">
+            <i className="fa fa-venus-mars"></i> {gender}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {grade ? (
+          <div className="info-item">
+            <i className="fa fa-graduation-cap"></i> {grade}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {address ? (
+          <div className="info-item">
+            <i className="fa fa-location-arrow"></i> {address}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {phoneNumber ? (
+          <div className="info-item">
+            <i className="fa fa-phone"></i> {phoneNumber}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {email ? (
+          <div className="info-item">
+            <i className="fa fa-envelope"></i> {email}{' '}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
-    </React.Fragment>
+      <div className="like-of-user">
+        <h3 className="title-info-user">Châm ngôn yêu thích</h3>
+        <p>Làm những gì mình thích và thích những gì mình làm</p>
+      </div>
+    </div>
   )
 }

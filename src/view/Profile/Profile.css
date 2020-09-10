@@ -1,8 +1,11 @@
 .profile-page {
     padding-top: 72px;
 }
-.header{
-    position: relative;
+.header-info{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .cover-box{
     height: 24rem;
@@ -15,47 +18,64 @@
     border-radius: 10px;
 }
 .avatar-box{
-    position: absolute;
-    right: 44%;
-    top: 73%;
-    text-align: center;
+    margin: 0px auto;
+    margin-top: -120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.avatar-box .avatar{
     width: 15rem;
     height: 15rem;
-}
-.avatar{
-    width: 100%;
-    border-radius: 50%;
+    border-radius: 100%;
     border: solid 2px white;
+    margin-bottom: 10px;
+    object-fit: cover;
 }
-.username{
-    margin-top: 1rem;
+.avatar-box .username{
     font-size: 1.5rem;
 }
-.body_container{
-    margin: 13rem 20vw;
+
+.description-this-user {
+    margin: 10px 0px;
 }
+
+.body_container{
+    width: 60%;
+    margin: 20px auto;
+    margin-bottom: 100px;
+}
+
 .menu-bar{
     width: 100%;
     display: flex;
     justify-content: center;
-    border-top: solid 2px #e8e8e8;
+    border-top: solid 2px #a1a1a1;
 }
-.nav-list{
+.nav-list_info{
     display: flex;
     justify-content: center;
-    /* border-top: solid 1px #e8e8e8; */
+    margin: 0px;
 }
-.nav-item{
-    color: #959595;
+.nav-item_info{
+    color: #a1a1a1;
     font-weight: 500;
-    padding: 0rem 1rem;
     cursor: pointer;
+    height: 60px;
+    margin: 0px 10px;
 }
-.nav-active{
-    color: #4a84d2 !important;
-    border-top: solid 2px #4a84d2;
+
+.nav-item_info .nav-link {
+    height: 60px;
+    display: flex;
+    align-items: center;
     position: relative;
     top: -3%;
+}
+
+.nav-active_info{
+    color: black !important;
+    border-top: solid 2px black;
 }
 li{
     list-style: none;
@@ -63,21 +83,18 @@ li{
 a{
     padding: 0px !important;
 }
+
 @media only screen and (max-width: 1024px) {
-    .avatar-box{
-        right: 41%;
+    .body_container{
+        width: 90%;
     }
 }
-@media only screen and (max-width: 768px) {
-    .avatar-box{
-        right: 38%;
+
+@media only screen and (max-width: 767px) {
+    .body_container{
+        width: 100%;
     }
-}
-@media only screen and (max-width: 425px) {
-    .avatar-box{
-        right: 26%;
-    }
-    .nav-item{
-        margin-right: 1rem;
+    .profile-page {
+        padding-top: 130px;
     }
 }
