@@ -1,0 +1,40 @@
+.image-box{
+    height: 300px;
+    width: 100%;
+    padding: 1rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.photos{
+    justify-content: center;
+}
+@media (min-width: 2560px) {
+    .image-box{
+        height: 480px;
+    }
+}
+@media (max-width: 1440px) {
+    .image-box{
+        height: 265px;
+    }
+}
+@media (max-width: 1024px) {
+    .image-box{
+        height: 285px;
+    }
+}
+@media (max-width: 768px) {
+    .image-box{
+        height: 208px;
+    }
+}
+@media (max-width: 425px) {
+    
+}
