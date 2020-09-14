@@ -1,0 +1,206 @@
+.missions h4 {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.add-new-task {
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-new-task svg {
+  margin-right: 10px;
+}
+
+.add-new-task:hover {
+  color: orangered;
+}
+
+.add-new-task__hover {
+  font-size: 20px;
+  color: orangered;
+}
+
+.add-new-task:hover .add-new-task__hover {
+  background-color: orangered;
+  border-radius: 100%;
+  color: white;
+}
+
+.checkbox-not-tick, .checkbox-tick {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.checkbox-tick {
+  color: rgb(5, 212, 67);
+}
+
+.is-create-task {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  padding-top: 0px;
+}
+
+.is-create-task:hover {
+  border: 1px solid black;
+}
+
+.is-create-task:focus-within {
+  border: 1px solid black;
+}
+
+.is-create-task__text {
+  width: 100%;
+  height: 40px;
+  border: none;
+}
+
+.is-create-task__text:focus {
+  outline: none;
+}
+
+.is-create-task__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.is-create-task__time {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: orangered;
+}
+
+.is-create-task__time:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.is-create-task__time svg {
+  margin-right: 5px;
+}
+
+.is-create-task__else {
+  display: flex;
+  align-items: center;
+}
+
+.is-create-task__else svg {
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-add-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-new-task__btn {
+  font-weight: bold;
+  color: white;
+  background-color: rgb(255, 102, 0);
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+  height: 40px;
+  padding: 0px 10px;
+}
+
+.add-new-task__btn:disabled {
+  opacity: 0.5;
+}
+
+.add-new-task__btn:hover {
+  background-color: rgb(255, 94, 0);
+}
+
+.add-new-task__btn:focus {
+  outline: none;
+}
+
+.add-new-task__cancel {
+  color: rgb(80, 80, 80);
+}
+
+.add-new-task__cancel:hover {
+  color: inherit;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.dropdown-item-checked::before {
+  position: absolute;
+  right: .4rem;
+  content: '✓';
+  font-weight: 600;
+  color: green;
+}
+
+.drop-icon-point {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-missions__task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.list-missions__task svg {
+  cursor: pointer;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.task-item svg {
+  margin-right: 5px;
+}
+
+.add-new-point {
+  padding: 20px;
+}
+
+.form-add-point label {
+  font-weight: bold;
+}
+
+.bold-title {
+  font-weight: bold;
+}
+
+.edit-task-line {
+  margin-bottom: 10px;
+}
+
+.done-task {
+  text-decoration: line-through;
+  color: rgb(121, 121, 121);
+}

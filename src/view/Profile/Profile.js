@@ -1,54 +1,88 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Profile.css'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { RenderInformation } from './Information/Information'
+// import { RenderInformation } from './Information/Information'
 import CreatePost from '../Shared/CreatePost/CreatePost'
 import Post from '../Shared/Posts/Post'
+import Missons from './Missions/Missons'
 
 export default function Profile() {
   const { user } = useSelector((state) => state.homeReducer)
-  const [showMenu, setShowMenu] = useState(1)
-  console.log(user)
+  const [showMenu, setShowMenu] = useState(4)
+
   const setMenu = (menu) => {
     setShowMenu(menu)
     console.log(showMenu)
   }
 
-  const posts = [
+  const [target, setTarget] = useState([
     {
-      id: 1,
-      type: 0,
-      content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image: '',
+      assignedUser: {
+        id: 1,
+        avatar:
+          'http://apis.aiforce.xyz/media/acddd8ca-ec64-41ff-b92b-e2caf03a1d16.jpg',
+        displayName: 'ProAdmin',
+      },
+      name: 'A+ Phân tích thiết kế',
+      isDone: false,
+      point: {
+        id: 1,
+        score: 100,
+        description: 'Mục tiêu bình thường',
+      },
+      status: 0,
+      createdTime: '2020-09-03T00:51:33Z',
     },
     {
-      id: 2,
-      type: 0,
-      content: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      image:
-        'https://soicauvn.com/wp-content/uploads/2020/04/20-hinh-anh-gai-xinh-toc-dai-dep-quyen-ru-va-de-thuong-nhat-1.jpg',
+      assignedUser: {
+        id: 1,
+        avatar:
+          'http://apis.aiforce.xyz/media/acddd8ca-ec64-41ff-b92b-e2caf03a1d16.jpg',
+        displayName: 'ProAdmin',
+      },
+      name: 'A+ Công nghệ phần mềm',
+      isDone: false,
+      point: {
+        id: 1,
+        score: 100,
+        description: 'Mục tiêu bình thường',
+      },
+      status: 0,
+      createdTime: '2020-08-13T01:01:04Z',
     },
-    {
-      id: 3,
-      type: 1,
-      question: 'Hình như tôi chiều các e quá nên các e hư đúng không',
-      polls: [
+  ])
+
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const tasksFilter = target.filter(
+      (targetItem) => targetItem.assignedUser.id === user.id,
+    )
+
+    const tasksMonth = tasksFilter.filter((taskItem) => {
+      let date = new Date(taskItem.createdTime)
+      return date.getMonth() + 1 === 9
+    })
+    console.log(tasksMonth)
+    setTasks(tasksMonth)
+  }, [target])
+
+  const addNewTask = (task) => {
+    let indexTask
+    console.log(indexTask)
+    console.log(tasks[0].date, typeof tasks[0].date)
+    if (indexTask === -1) {
+      setTasks([
+        ...tasks,
         {
-          id: 1,
-          option: 'Dạ không',
+          date: task.createAt,
+          missions: [task],
         },
-        {
-          id: 2,
-          option: 'E là của anh',
-        },
-        {
-          id: 3,
-          option: 'Ghê quá',
-        },
-      ],
-    },
-  ]
+      ])
+    }
+    console.log(tasks)
+  }
 
   return (
     <div className="profile-page">
@@ -120,17 +154,22 @@ export default function Profile() {
           <div className={showMenu === 1 ? 'right-status' : 'body-profile'}>
             {showMenu === 1 ? (
               <div className="newfeed-user">
-                <CreatePost />
+                {/* <CreatePost />
                 {posts.map((post) => {
                   return <Post post={post} />
-                })}
+                })} */}
+                hihi
               </div>
             ) : showMenu === 2 ? (
-              <div>
-                <RenderInformation {...user} />
-              </div>
+              <div>{/* <RenderInformation {...user} /> */}hihi</div>
+            ) : showMenu === 3 ? (
+              <div>Day la anh</div>
             ) : (
-              <div>day la nhiem vu</div>
+              <Missons
+                tasks={tasks}
+                setTasks={setTasks}
+                // addNewTask={addNewTask}
+              />
             )}
           </div>
         </div>
