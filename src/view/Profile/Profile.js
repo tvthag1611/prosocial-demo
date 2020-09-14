@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 import CreatePost from '../Shared/CreatePost/CreatePost'
 import Post from '../Shared/Posts/Post'
 import Missons from './Missions/Missons'
+import { RenderPhotos } from './Photos/Photos'
 
 export default function Profile() {
   const { user } = useSelector((state) => state.homeReducer)
@@ -161,9 +162,13 @@ export default function Profile() {
                 hihi
               </div>
             ) : showMenu === 2 ? (
-              <div>{/* <RenderInformation {...user} /> */}hihi</div>
+              <div>
+                <RenderInformation {...user} />
+              </div>
             ) : showMenu === 3 ? (
-              <div>Day la anh</div>
+              <div>
+                <RenderPhotos />
+              </div>
             ) : (
               <Missons
                 tasks={tasks}
